@@ -68,6 +68,6 @@ public class User {
     }
 
     public String toString(){
-        return " ";
+        return "{Username: "+ this.username + "} ";
     }
 }
