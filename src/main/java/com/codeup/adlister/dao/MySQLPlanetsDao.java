@@ -27,7 +27,7 @@ public class MySQLPlanetsDao implements Planets {
     public List<Planet> all() {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM planetlister_db.planets");
+            stmt = connection.prepareStatement("SELECT * FROM planets");
             ResultSet rs = stmt.executeQuery();
             return createPlanetsFromResults(rs);
         } catch (SQLException e) {
@@ -40,7 +40,7 @@ public class MySQLPlanetsDao implements Planets {
     @Override
     public Long insert(Planet planet) {
         try {
-            String insertQuery = "INSERT INTO planetlister_db.planets (planetname, planetdesc, user_id) VALUES (?, ?, ?)";
+            String insertQuery = "INSERT INTO planets (planetname, planetdesc, user_id) VALUES (?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setLong(3, planet.getId());
             stmt.setString(1, planet.getName());
@@ -69,23 +69,6 @@ public class MySQLPlanetsDao implements Planets {
         return planets;
     }
 
-    public static void main(String[] args) {
-
-        // testing all method
-//        models.Ads adsDao = new dao.MySQLAdsDao();
-//        List<models.Ad> ads = adsDao.all();
-//        for (models.Ad ad : ads) {
-//            System.out.println(ad);
-//        }
-
-        Config config = new Config();
-        MySQLPlanetsDao TestDAO = new MySQLPlanetsDao(config);
-        List<Planet> testListPlanets = TestDAO.all();
-
-        for (Planet planet : testListPlanets) {
-            System.out.println(planet);
-        }
-    }
 }
 
 
