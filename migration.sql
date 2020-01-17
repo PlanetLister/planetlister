@@ -1,3 +1,4 @@
+
 USE adlister_db;
 
 DROP TABLE IF EXISTS ads;
