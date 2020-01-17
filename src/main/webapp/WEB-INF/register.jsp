@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,11 +13,13 @@
         <form action="/register" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input id="username" name="username" class="form-control" type="text">
+                <input id="username" name="username" class="form-control" type="text" value="<c:out value="${usernameInput}"></c:out>"/>
+                <span><c:out value="${usernameError}"></c:out></span>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input id="email" name="email" class="form-control" type="text">
+                <input id="email" name="email" class="form-control" type="text" value="<c:out value="${emailInput}"></c:out>">
+                <span><c:out value="${emailError}"></c:out></span>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
@@ -26,8 +29,10 @@
                 <label for="confirm_password">Confirm Password</label>
                 <input id="confirm_password" name="confirm_password" class="form-control" type="password">
             </div>
+            <span><c:out value="${passwordError}"></c:out></span>
             <input type="submit" class="btn btn-primary btn-block">
         </form>
+        <img src="../webapp/WEB-INF/img/dummy.jpeg">
     </div>
 </body>
 </html>
