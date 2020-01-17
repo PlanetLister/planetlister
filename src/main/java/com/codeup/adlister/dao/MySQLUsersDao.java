@@ -78,8 +78,5 @@ public class MySQLUsersDao implements Users {
         );
     }
 
-    public static void main(String args[]){
-        Config config = new Config();
-        System.out.println(new MySQLUsersDao(config).findByEmail("ken21cool@yahoo.com"));
-    }
 }
+
