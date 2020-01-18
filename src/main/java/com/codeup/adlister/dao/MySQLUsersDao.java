@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.User;
+import com.codeup.adlister.util.Password;
 import com.mysql.cj.jdbc.Driver;
 import com.codeup.adlister.models.Config;
 import java.sql.*;
@@ -77,6 +78,15 @@ public class MySQLUsersDao implements Users {
                 rs.getString("filepath_to_avatar")
         );
     }
+
+//    public static void main(String args[]){
+//        Config config = new Config();
+//        Users test = new MySQLUsersDao(config);
+//        //test.insert(new User("username2", "user@email.com", "P@ssw0rd", "avater"));
+//        User mia = test.findByUsername("username2");
+//        System.out.println(mia);
+//        System.out.println(Password.check("P@ssw0rd",mia.getPassword()));
+//    }
 
 }
 
