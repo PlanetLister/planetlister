@@ -69,6 +69,24 @@ public class MySQLPlanetsDao implements Planets {
         return planets;
     }
 
+ public Planet findPlanetById(long id){
+     String findPlanetQuery = "SELECT * FROM planets WHERE id = ?";
+     Planet result = null;
+        try {
+            PreparedStatement stmt = connection.prepareStatement(findPlanetQuery);
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()){
+                result = new Planet((int) id,
+                        rs.getString("planetname"),
+                        rs.getString("planetdesc"),
+                        rs.getInt("user_id"));
+            }
+        } catch (SQLException e){
+            throw new RuntimeException("Error finding Planet by that ID.", e);
+        }
+        return result;
+ };
 }
 
 
