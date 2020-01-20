@@ -27,15 +27,20 @@
         })
 
         window.onload = function () {
-            //on load, the search input would get cursor at the end of the input
-            search.focus()
-            if (typeof search.selectionStart == "number") {
-                search.selectionStart = search.selectionEnd = search.value.length;
-            } else if (typeof search.createTextRange != "undefined") {
-                var range = search.createTextRange();
-                range.collapse(false);
-                range.select();
+            if(search.value !== ""){
+                //on load, the search input would get cursor at the end of the input
+                search.focus();
+
+                if (typeof search.selectionStart == "number") {
+                    search.selectionStart = search.selectionEnd = search.value.length;
+                } else if (typeof search.createTextRange != "undefined") {
+                    var range = search.createTextRange();
+                    range.collapse(false);
+                    range.select();
+                }
             }
+
+
         }
     </script>
 
