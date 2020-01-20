@@ -40,10 +40,17 @@
     </script>
 
     <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p>${ad.description}</p>
-        </div>
+
+            <div class="col-md-6">
+                <h2>${ad.title}</h2>
+                <p>${ad.description}</p>
+
+                <a href="/ads?id=${ad.id}&button=edit" name="button">Edit</a>
+                <a href="/ads?id=${ad.id}&button=delete" name="button">Delete</a>
+                <p>${editDelMessage}</p>
+            </div>
+
+
     </c:forEach>
 </div>
 
