@@ -11,7 +11,7 @@
     <jsp:include page="partials/navbar.jsp" />
 
     <div class="profile">
-        <img src="img/astronaut_bob.jpg" alt="" style="width: 400px">
+        <img src="../img/astronaut_bob.jpg" alt="" style="width: 400px">
         <div class="info">
             <h1><span><c:out value="${user.getUsername()}"/></span></h1>
             <h3>Email: <span><c:out value="${user.getEmail()}"/></span></h3>
