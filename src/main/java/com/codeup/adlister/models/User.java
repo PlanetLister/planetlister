@@ -27,6 +27,11 @@ public class User {
         this.filepath_to_avatar = avatar;
     }
 
+    public User(String username, String email){
+        this.username = username;
+        this.email = email;
+    }
+
 
 
     public long getId() {

@@ -9,5 +9,6 @@ public interface Users {
     User findByEmail(String email);
     Long insert(User user);
     User findUserById(long id);
+    User findPlanetsOwnerById(long id);
 
 }
