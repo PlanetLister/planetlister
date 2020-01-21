@@ -36,9 +36,11 @@ public class LoginServlet extends HttpServlet {
 
         if (validAttempt) {
             request.getSession().setAttribute("user", user);
-            request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+//            request.getRequestDispatcher("/WEB-INF/planet.jsp").forward(request, response);
+            response.sendRedirect("/galaxy");
         } else {
             request.setAttribute("loginError", "Username and Password combination does not match");
+            request.setAttribute("loginReload", "true");
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         }
     }
