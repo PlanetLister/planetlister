@@ -14,7 +14,7 @@ import java.io.IOException;
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -59,7 +59,7 @@ public class RegisterServlet extends HttpServlet {
             }
             request.setAttribute("usernameInput", username);
             request.setAttribute("emailInput", email);
-            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
             return;
         }
 
