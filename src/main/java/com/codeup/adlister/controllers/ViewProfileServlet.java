@@ -19,7 +19,7 @@ public class ViewProfileServlet extends HttpServlet {
 //            return;
 //       }
 
-        long userId = Integer.parseInt(request.getParameter("id"));
+        long userId = Integer.parseInt(request.getSession("id"));
         User user = DaoFactory.getUsersDao().findUserById(userId);
 
         request.setAttribute("user",user);

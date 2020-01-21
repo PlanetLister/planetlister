@@ -19,6 +19,6 @@ public class PlanetsIndexServlet extends HttpServlet {
             return;
         }
         request.setAttribute("planets", DaoFactory.getPlanetsDao().all());
-        request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request,response);
+        request.getRequestDispatcher("/index.jsp").forward(request,response);
     }
 }

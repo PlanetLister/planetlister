@@ -36,7 +36,8 @@ public class LoginServlet extends HttpServlet {
 
         if (validAttempt) {
             request.getSession().setAttribute("user", user);
-            request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+            response.sendRedirect("/galaxy");
+//            request.getRequestDispatcher("/galaxy").forward(request, response);
         } else {
             request.setAttribute("loginError", "Username and Password combination does not match");
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
