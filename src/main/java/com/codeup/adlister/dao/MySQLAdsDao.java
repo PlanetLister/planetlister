@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 //testing
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.Config;
 import com.mysql.cj.jdbc.Driver;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -16,7 +17,7 @@ public class MySQLAdsDao implements Ads {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getUrl(),
+                config.getAdUrl(),
                 config.getUser(),
                 config.getPassword()
             );
@@ -34,6 +35,25 @@ public class MySQLAdsDao implements Ads {
             return createAdsFromResults(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all ads.", e);
+        }
+    }
+
+    //method used for search the database
+    public List<Ad>search(String userInput){
+        PreparedStatement stmt = null;
+        try{
+            String query = "SELECT * FROM ads WHERE title LIKE ? OR description LIKE ?";
+            String queryWildCard = userInput + "%";
+
+            stmt = connection.prepareStatement(query);
+            stmt.setString(1, queryWildCard);
+            stmt.setString(2, queryWildCard);
+
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+
+        }catch(SQLException e){
+            throw new RuntimeException("Error retrieving the ads", e);
         }
     }
 
@@ -69,5 +89,17 @@ public class MySQLAdsDao implements Ads {
             ads.add(extractAd(rs));
         }
         return ads;
+    }
+
+    public static void main(String args[]){
+        Config config = new Config();
+        List<Ad> test = new MySQLAdsDao(config).search("eduardo");
+        System.out.println(test.isEmpty());
+
+        if(!test.isEmpty()){
+            for(int x = 0; x < test.size(); x++){
+                System.out.println(test.get(x));
+            }
+        }
     }
 }

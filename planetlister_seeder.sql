@@ -49,11 +49,11 @@ VALUES (1,3),
 
 
 
-    SELECT * FROM users;
-    SELECT * FROM planets;
-    SELECT * FROM categories;
-    SELECT * FROM ad_category;
-    SELECT * FROM planets WHERE id = 2;
+#     SELECT * FROM users;
+#     SELECT * FROM planets;
+#     SELECT * FROM categories;
+#     SELECT * FROM ad_category;
+#     SELECT * FROM planets WHERE id = 2;
 #
 #     SELECT planetname, c.name FROM planets JOIN ad_category ac on planets.id = ac.planet_id
 # JOIN categories c on ac.category_id = c.id;

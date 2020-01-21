@@ -1,13 +1,19 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/ads">Adlister</a>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="/login">Login</a></li>
-            <li><a href="/logout">Logout</a></li>
-        </ul>
-    </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+<nav class="navbar">
+    <ul class="nav_menu">
+        <li class="menu_li">
+            <a class="menu_a" href="#">
+                <img id="logoTitle" src="../img/title.png" alt="">
+                <img id="logoPic" src="../img/sun.gif" alt="">
+            </a>
+        </li>
+        <li class="menu_li">
+            <form id="content">
+                <input type="text" name="input" class="input" id="search-input">
+                <button type="reset" class="search" id="search-btn"></button>
+            </form>
+        </li>
+        <li class="menu_li">
+            <a class="menu_a" href="#"><img src="../img/profile.png" alt=""></a>
+        </li>
+    </ul>
 </nav>

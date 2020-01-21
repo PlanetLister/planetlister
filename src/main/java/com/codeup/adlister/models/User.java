@@ -52,7 +52,7 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {
@@ -68,6 +68,6 @@ public class User {
     }
 
     public String toString(){
-        return " ";
+        return "{Username: "+ this.username + ", Email: "+this.email+", Password: "+this.password+"} ";
     }
 }
