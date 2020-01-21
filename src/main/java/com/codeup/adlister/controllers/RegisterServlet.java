@@ -62,6 +62,7 @@ public class RegisterServlet extends HttpServlet {
             }
             request.setAttribute("usernameInput", username);
             request.setAttribute("emailInput", email);
+            request.setAttribute("reloaded", "true");
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
             return;
         }
