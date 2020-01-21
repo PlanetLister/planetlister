@@ -9,12 +9,12 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <ul id="solarSystem">
-        <li><img class="sun" src="img/sun.gif" alt=""></li>
+        <li><img class="sun" src="./WEB-INF/img/sun.gif" alt=""></li>
     </ul>
     <button id="add-planet">Add Planet</button>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script src="index.js"></script>
+    <script src="./WEB-INF/index.js"></script>
 </body>
 </html>
