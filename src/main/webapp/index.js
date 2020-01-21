@@ -34,6 +34,7 @@ const expand = () => {
 
 searchBtn.addEventListener("click", expand);
 
+
 ////////////planet/////////
 $(document).on("click", "#buy",function () {
     alert("Thank you for your purchase.");

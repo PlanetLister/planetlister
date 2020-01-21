@@ -68,6 +68,7 @@ body{
 }
 .menu_a img{
     height: 60px;
+    cursor: pointer;
 }
 #logoTitle{
     position: absolute;
