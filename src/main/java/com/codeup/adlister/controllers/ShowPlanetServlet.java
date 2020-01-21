@@ -13,7 +13,12 @@ import java.io.IOException;
 @WebServlet("/galaxy/planet")
 public class ShowPlanetServlet extends HttpServlet {
 
+
     protected void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (request.getSession().getAttribute("user") == null) {
+            response.sendRedirect("/splash");
+            return;
+        }
         long planetId = Integer.parseInt(request.getParameter("id"));
         Planet planet = DaoFactory.getPlanetsDao().findPlanetById(planetId);
         request.setAttribute("planet", planet);

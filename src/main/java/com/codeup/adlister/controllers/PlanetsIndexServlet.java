@@ -14,6 +14,10 @@ import java.io.IOException;
 public class PlanetsIndexServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        if (request.getSession().getAttribute("user") == null) {
+            response.sendRedirect("/splash");
+            return;
+        }
         request.setAttribute("planets", DaoFactory.getPlanetsDao().all());
         request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request,response);
     }

@@ -10,7 +10,7 @@ import java.io.IOException;
 @WebServlet("/splash")
 public class SplashServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        request.getRequestDispatcher("/WEB-INF/splash.jsp").forward(request,response);
+        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request,response);
     }
 
 }

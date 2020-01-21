@@ -11,5 +11,6 @@ public interface Planets {
     // insert a new ad and return the new ad's id
     Long insert(Planet planet);
     Planet findPlanetById(long id);
+    List<Planet> usersPlanets(long id);
 
 }
