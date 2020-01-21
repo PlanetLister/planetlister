@@ -3,24 +3,24 @@ package com.codeup.adlister.models;
 //creating a new Planet model to replace the ads model
 public class Planet {
     private int id;
-    private String name;
-    private String description;
+    private String planetname;
+    private String planetdesc;
     private int user_id;
     private String filepath_to_image;
 
     public Planet(){}
 
-    public Planet(int id, String name, String description, int user_id, String filepath_to_image){
+    public Planet(int id, String name, String description, int user_id){
         this.id = id;
-        this.name = name;
-        this.description = description;
+        this.planetname = name;
+        this.planetdesc = description;
         this.user_id = user_id;
         this.filepath_to_image = filepath_to_image;
     }
 
-    public Planet(String name, String description, int user_id, String filepath_to_image){
-        this.name = name;
-        this.description = description;
+    public Planet(String name, String description, int user_id){
+        this.planetname = name;
+        this.planetdesc = description;
         this.user_id = user_id;
         this.filepath_to_image = filepath_to_image;
     }
@@ -34,19 +34,19 @@ public class Planet {
     }
 
     public String getName(){
-        return this.name;
+        return this.planetname;
     }
 
     public void setName(String name){
-        this.name = name;
+        this.planetname = name;
     }
 
     public String getDescription(){
-        return this.description;
+        return this.planetdesc;
     }
 
     public void setDescription(String description){
-        this.description = description;
+        this.planetdesc = description;
     }
 
     public int getUser_id(){
@@ -66,7 +66,10 @@ public class Planet {
     }
 
     public String toString(){
-        return "";
+        return "{Name: "+this.planetname+"}"
+                + "{Desc :" +this.planetdesc+"}"
+                + "ID :" + this.id + "}"
+                + "User ID:" + this.user_id + "}";
     }
 
 }
