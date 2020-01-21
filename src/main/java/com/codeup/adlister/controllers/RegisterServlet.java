@@ -14,7 +14,11 @@ import java.io.IOException;
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
+        if (request.getSession().getAttribute("user") != null) {
+            response.sendRedirect("/galaxy");
+            return;
+        }
+        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -23,7 +27,6 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
         String filepath = "/WEB-INF/img/dummy.jpg";
-
         // validate input
         boolean inputHasErrors = username.isEmpty()
                 || email.isEmpty()
@@ -59,7 +62,7 @@ public class RegisterServlet extends HttpServlet {
             }
             request.setAttribute("usernameInput", username);
             request.setAttribute("emailInput", email);
-            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
             return;
         }
 

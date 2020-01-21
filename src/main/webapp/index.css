@@ -68,6 +68,7 @@ body{
 }
 .menu_a img{
     height: 60px;
+    cursor: pointer;
 }
 #logoTitle{
     position: absolute;
@@ -89,7 +90,7 @@ body{
         height: 50px;
         width: 300px;
         margin-left: 250px;
-        margin-top: -380px;
+        margin-top: -390px;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -101,7 +102,7 @@ body{
         height: 50px;
         width: 300px;
         margin-left: 200px;
-        margin-top: -450px;
+        margin-top: -460px;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -351,4 +352,7 @@ body{
     margin: 20px;
     border: #F33F4B solid 2px ;
     font-family: 'Space Mono', monospace;
+}
+.edit{
+    display: flex;
 }

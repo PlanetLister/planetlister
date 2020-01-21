@@ -15,15 +15,15 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") != null) {
-            response.sendRedirect("/profile");
+            response.sendRedirect("/galaxy");
             return;
         }
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        String username = request.getParameter("uname");
+        String password = request.getParameter("psw");
         User user = DaoFactory.getUsersDao().findByUsername(username);
 
         if (user == null) {
@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 
         if (validAttempt) {
             request.getSession().setAttribute("user", user);
-            request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
         } else {
             request.setAttribute("loginError", "Username and Password combination does not match");
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
