@@ -7,7 +7,7 @@
             </a>
         </li>
         <li class="menu_li">
-            <form id="content">
+            <form id="content" method="GET">
                 <input type="text" name="input" class="input" id="search-input">
                 <button type="reset" class="search" id="search-btn"></button>
             </form>

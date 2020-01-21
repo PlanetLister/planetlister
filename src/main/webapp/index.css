@@ -353,3 +353,6 @@ body{
     border: #F33F4B solid 2px ;
     font-family: 'Space Mono', monospace;
 }
+.edit{
+    display: flex;
+}
