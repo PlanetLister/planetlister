@@ -1,8 +1,10 @@
 package com.codeup.adlister.dao;
 //testing
+
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.Config;
 import com.mysql.cj.jdbc.Driver;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,9 +19,9 @@ public class MySQLAdsDao implements Ads {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getAdUrl(),
-                config.getUser(),
-                config.getPassword()
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
@@ -39,9 +41,9 @@ public class MySQLAdsDao implements Ads {
     }
 
     //method used for search the database
-    public List<Ad>search(String userInput){
+    public List<Ad> search(String userInput) {
         PreparedStatement stmt = null;
-        try{
+        try {
             String query = "SELECT * FROM ads WHERE title LIKE ? OR description LIKE ?";
             String queryWildCard = userInput + "%";
 
@@ -52,7 +54,7 @@ public class MySQLAdsDao implements Ads {
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
 
-        }catch(SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException("Error retrieving the ads", e);
         }
     }
@@ -76,10 +78,10 @@ public class MySQLAdsDao implements Ads {
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-            rs.getLong("id"),
-            rs.getLong("user_id"),
-            rs.getString("title"),
-            rs.getString("description")
+                rs.getLong("id"),
+                rs.getLong("user_id"),
+                rs.getString("title"),
+                rs.getString("description")
         );
     }
 
@@ -91,13 +93,13 @@ public class MySQLAdsDao implements Ads {
         return ads;
     }
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
         Config config = new Config();
         List<Ad> test = new MySQLAdsDao(config).search("eduardo");
         System.out.println(test.isEmpty());
 
-        if(!test.isEmpty()){
-            for(int x = 0; x < test.size(); x++){
+        if (!test.isEmpty()) {
+            for (int x = 0; x < test.size(); x++) {
                 System.out.println(test.get(x));
             }
         }
