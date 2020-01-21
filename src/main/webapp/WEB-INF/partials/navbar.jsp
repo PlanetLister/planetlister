@@ -2,8 +2,8 @@
     <ul class="nav_menu">
         <li class="menu_li">
             <a class="menu_a" href="#">
-                <img id="logoTitle" src="../img/title.png" alt="">
-                <img id="logoPic" src="../img/sun.gif" alt="">
+                <img id="logoTitle" src="../../img/title.png" alt="">
+                <img id="logoPic" src="../../img/sun.gif" alt="">
             </a>
         </li>
         <li class="menu_li">
@@ -13,7 +13,7 @@
             </form>
         </li>
         <li class="menu_li">
-            <a class="menu_a" href="#"><img src="../img/profile.png" alt=""></a>
+            <a class="menu_a" href="#"><img src="../../img/profile.png" alt=""></a>
         </li>
     </ul>
 </nav>
