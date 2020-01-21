@@ -88,6 +88,19 @@ public class MySQLPlanetsDao implements Planets {
         }
         return result;
  };
+
+    @Override
+    public List<Planet> usersPlanets(long id) {
+        String usersPlanetQuery = "SELECT planetname, planetdesc, planets.id from users join planets on users.id = planets.user_id WHERE users.id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(usersPlanetQuery);
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            return createPlanetsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving users planets.", e);
+        }
+    }
 }
 
 

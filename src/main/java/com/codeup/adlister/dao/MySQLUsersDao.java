@@ -1,7 +1,6 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.User;
-import com.codeup.adlister.util.Password;
 import com.mysql.cj.jdbc.Driver;
 import com.codeup.adlister.models.Config;
 import java.sql.*;
@@ -66,6 +65,28 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+    @Override
+    public User findUserById(long id){
+        String findUserQuery = "SELECT * FROM users WHERE id = ?";
+        User result = null;
+        try{
+            PreparedStatement stmt = connection.prepareStatement(findUserQuery);
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()){
+                result = new User(rs.getString("username"),
+                        rs.getString("email"),
+                        rs.getString("password"),
+                        rs.getString("filepath_to_avatar"));
+            }
+        }
+        catch (SQLException e){
+            throw new RuntimeException("Error finding USER by that ID.", e);
+        }
+
+        return result;
+    };
+
     private User extractUser(ResultSet rs) throws SQLException {
         if (! rs.next()) {
             return null;
@@ -77,6 +98,7 @@ public class MySQLUsersDao implements Users {
             rs.getString("password"),
                 rs.getString("filepath_to_avatar")
         );
+
     }
 
 //    public static void main(String args[]){

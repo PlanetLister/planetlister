@@ -27,6 +27,8 @@ public class User {
         this.filepath_to_avatar = avatar;
     }
 
+
+
     public long getId() {
         return id;
     }
