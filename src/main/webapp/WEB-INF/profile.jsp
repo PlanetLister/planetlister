@@ -9,10 +9,10 @@
     <jsp:include page="partials/navbar.jsp" />
 
     <div class="profile">
-        <img src="img/astronaut_bob.jpg" alt="" style="width: 400px">
+        <img src="../img/astronaut_bob.jpg" alt="" style="width: 400px">
         <div class="info">
-            <h1><span>Astronaut Bob</span></h1>
-            <h3>Email: <span>bananas@monkeybusiness.com</span></h3>
+            <h1><span>${user.getUsername}</span></h1>
+            <h3>Email: <span>${user.getEmail}</span></h3>
             <button class="button" id="create">Create Planet</button>
         </div>
     </div>
