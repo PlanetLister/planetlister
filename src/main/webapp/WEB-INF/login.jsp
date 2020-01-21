@@ -2,15 +2,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <jsp:include page="/WEB-INF/partials/head.jsp">
+    <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Please Log In"/>
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+<jsp:include page="partials/navbar.jsp"/>
 <div id="galaxy">
-    <img class="title" src="img/title.png" alt="">
-    <img class="splashSun" src="img/sun.gif" alt="">
+    <img class="title" src="../img/title.png" alt="">
+    <img class="splashSun" src="../img/sun.gif" alt="">
     <div id="ex1" class="modal">
         <form action="POST">
             <label for="uname"><b>Username</b></label>
