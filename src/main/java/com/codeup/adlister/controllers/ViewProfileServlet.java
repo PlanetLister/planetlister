@@ -14,18 +14,33 @@ import java.io.IOException;
 @WebServlet(name = "controllers.ViewProfileServlet", urlPatterns = "/profile")
 public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        if (request.getSession().getAttribute("user") == null) {
-//            response.sendRedirect("/splash");
-//            return;
-//       }
+        if (request.getSession().getAttribute("user") == null) {
+            response.sendRedirect("/splash");
+            return;
+       }
 
         User user = (User) request.getSession().getAttribute("user");
-        long userId = user.getId();
+        int userId = (int) user.getId();
         user = DaoFactory.getUsersDao().findUserById(userId);
 
         request.setAttribute("user",user);
         request.setAttribute("planets", DaoFactory.getPlanetsDao().usersPlanets(userId));
 
         request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        String edit = request.getParameter("editSend");
+        String delete = request.getParameter("deleteSend");
+
+        if(edit != null){
+            request.getSession().setAttribute("planetId", edit);
+            response.sendRedirect("/update");
+        }
+
+        if(delete != null){
+            request.getSession().setAttribute("planetId", delete);
+            response.sendRedirect("/galaxy/delete");
+        }
     }
 }

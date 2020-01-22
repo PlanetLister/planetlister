@@ -23,10 +23,15 @@
 <div class="planets">
     <c:forEach items="${planets}" var="planet">
         <div class="info">
-            <form class="edit" action="POST">
+            <form class="edit" method="POST" action="/profile">
+                <input type="hidden" name="editSend" value="${planet.getId()}" />
                 <button id="edit" class="button" style="background-color: dodgerblue">Edit</button>
-                <button id="delete" class="button" style="background-color: firebrick">Delete</button>
             </form>
+            <form class="delete" method="POST" action="/profile">
+                <input type="hidden" name="deleteSend" value="${planet.getId()}" />
+                <button id="delete" class="button" style="background-color: firebrick" value="Delete">Delete</button>
+            </form>
+
             <h1>Planet:</h1>
             <h2><span>${planet.getName()}</span></h2>
             <p>Description: ${planet.getDescription()}</p>
