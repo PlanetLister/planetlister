@@ -21,6 +21,12 @@
         <h1>Planet: <span><c:out value="${planet.getName()}"/> </span></h1>
         <h3>Description: <span><c:out value="${planet.getDescription()}"/></span></h3>
         <button class="button" id="buy">Buy Now</button>
+        <ul>
+            <c:forEach items="${categories}" var="category">
+                <li>${category.getName()}</li>
+            </c:forEach>
+        </ul>
+
     </div>
 </div>
 <div class="astronaut">

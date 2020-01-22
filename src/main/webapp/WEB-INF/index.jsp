@@ -12,7 +12,9 @@
     <li><img class="sun" src="img/sun.gif" alt=""></li>
 
     <c:forEach items="${planets}" var="planet">
-        <li class='planet'><br><br><p>${planet.getName()}</p></li>
+        <a href="/galaxy/planet?id=<c:out value="${planet.getId()}"></c:out>">
+            <li class='planet'><br><br><p>${planet.getName()}</p></li>
+        </a>
     </c:forEach>
 
 </ul>
