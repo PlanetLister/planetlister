@@ -29,7 +29,7 @@
             </form>
             <form class="delete deleteBtn" name="deleteSend" method="POST" action="/profile" id="deleteBtn">
                 <input type="hidden" name="deleteSend" value="${planet.getId()}" />
-                <button id="delete" class="button" style="background-color: firebrick" name="deleteSend" value="${planet.getId()}" onclick="deleteClick()">Delete</button>
+                <button id="delete" class="button" style="background-color: firebrick" name="deleteSend" value="${planet.getId()}" onclick="return deleteClick()">Delete</button>
             </form>
 
             <h1>Planet:</h1>
@@ -42,9 +42,10 @@
     function deleteClick(){
         var userConfirm = confirm("Are you sure you want to delete the planet?");
 
-        if(userConfirm){
-            this.$('.deleteBtn').submit();
-        }
+        if(!userConfirm){
+            return false;
+        } else {
+            this.$('.deleteBtn').submit();        }
     }
 
 </script>
