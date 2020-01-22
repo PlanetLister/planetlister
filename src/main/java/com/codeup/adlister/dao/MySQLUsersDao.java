@@ -101,6 +101,25 @@ public class MySQLUsersDao implements Users {
 
     }
 
+    public User findPlanetsOwnerById(long id){
+        String PlanetsOwnerQuery = "SELECT users.username, users.email from planets join users on planets.user_id = users.id WHERE planets.id = ?";
+        User result = null;
+        try{
+            PreparedStatement stmt = connection.prepareStatement(PlanetsOwnerQuery);
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()){
+                result = new User(
+                        rs.getString("username"),
+                        rs.getString("email"));
+
+            }
+        }catch (SQLException e){
+            throw new RuntimeException("Error finding User creator by ID.", e);
+        }
+        return result;
+    }
+
 //    public static void main(String args[]){
 //        Config config = new Config();
 //        Users test = new MySQLUsersDao(config);

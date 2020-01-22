@@ -18,18 +18,16 @@
 <div id="profilePic"></div>
 <div class="forSale">
     <div class="info">
-        <h1>Planet: <span>Earth</span></h1>
-        <h3>Mass:<span> 5.972 * 10^24 kg</span></h3>
-        <h3>Size:<span> 3958.8 mi</span></h3>
-        <h3>Description: <span>Mostly harmless.</span></h3>
+        <h1>Planet: <span><c:out value="${planet.getName()}"/> </span></h1>
+        <h3>Description: <span><c:out value="${planet.getDescription()}"/></span></h3>
         <button class="button" id="buy">Buy Now</button>
     </div>
 </div>
 <div class="astronaut">
     <img src="img/astronaut_bob.jpg" alt="" style="width: 400px">
     <div class="info">
-        <h1>Astronaut Bob</h1>
-        <p>Created planet on: <span>01/16/2020</span></p>
+        <h1>Created by: <c:out value="${user.getUsername()}"/></h1>
+        <p>Comments? E-mail <c:out value="${user.getUsername()}"/> at <c:out value="${user.getEmail()}"/></p>
     </div>
 </div>
 

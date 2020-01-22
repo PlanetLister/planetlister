@@ -43,7 +43,7 @@ public class MySQLPlanetsDao implements Planets {
         try {
             String insertQuery = "INSERT INTO planets (planetname, planetdesc, user_id) VALUES (?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(3, planet.getId());
+            stmt.setLong(3, planet.getUser_id());
             stmt.setString(1, planet.getName());
             stmt.setString(2, planet.getDescription());
             stmt.executeUpdate();
@@ -128,20 +128,6 @@ public class MySQLPlanetsDao implements Planets {
         }
     }
 
-//    public static void main(String args[]){
-//            Config config = new Config();
-//            List<Planet> planets = new MySQLPlanetsDao(config).all();
-//            System.out.println(planets);
-////            Planet test = new Planet(10, "Deimos Test", "New Deimos Description",  1);
-////            int anotherTest = new MySQLPlanetsDao(config).updatePlanet(test);
-////            System.out.println(anotherTest);
-////            planets = new MySQLPlanetsDao(config).all();
-////            System.out.println(planets);
-//            int test = new MySQLPlanetsDao(config).deletePlanet(10);
-//        System.out.println(test);
-//        System.out.println(planets);
-//
-//    }
 }
 
 
