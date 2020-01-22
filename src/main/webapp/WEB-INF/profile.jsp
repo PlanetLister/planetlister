@@ -27,9 +27,9 @@
                 <input type="hidden" name="editSend" value="${planet.getId()}" />
                 <button id="edit" class="button" style="background-color: dodgerblue">Edit</button>
             </form>
-            <form class="delete" method="POST" action="/profile">
+            <form class="delete" name="deleteSend" method="POST" action="/galaxy/delete">
                 <input type="hidden" name="deleteSend" value="${planet.getId()}" />
-                <button id="delete" class="button" style="background-color: firebrick" value="Delete">Delete</button>
+                <button id="delete" class="button" style="background-color: firebrick" name="deleteSend" value="${planet.getId()}">Delete</button>
             </form>
 
             <h1>Planet:</h1>
