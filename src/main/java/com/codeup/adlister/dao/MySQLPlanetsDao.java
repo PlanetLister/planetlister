@@ -43,7 +43,7 @@ public class MySQLPlanetsDao implements Planets {
         try {
             String insertQuery = "INSERT INTO planets (planetname, planetdesc, user_id) VALUES (?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(3, planet.getId());
+            stmt.setLong(3, planet.getUser_id());
             stmt.setString(1, planet.getName());
             stmt.setString(2, planet.getDescription());
             stmt.executeUpdate();
@@ -101,6 +101,7 @@ public class MySQLPlanetsDao implements Planets {
             throw new RuntimeException("Error retrieving users planets.", e);
         }
     }
+
 }
 
 
