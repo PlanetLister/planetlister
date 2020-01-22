@@ -13,14 +13,17 @@ import java.io.IOException;
 @WebServlet("/galaxy/delete")
 public class DeletePlanetServlet extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/splash");
             return;
         }
-        int planetID = (int) request.getSession().getAttribute("planetId");
+        String planetid = (String) request.getSession().getAttribute("delPlanetId");
+        int delplanetID = Integer.parseInt(planetid);
 
-        DaoFactory.getPlanetsDao().deletePlanet(planetID);
+
+
+        DaoFactory.getPlanetsDao().deletePlanet(delplanetID);
         response.sendRedirect("/profile");
     }
 }
