@@ -406,6 +406,14 @@ body{
 }
 
 
+#createPlanet{
+    display: none;
+}
+
+.edit{
+}
+
+
 .name{
     color: white;
 }

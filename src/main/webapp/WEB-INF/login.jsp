@@ -19,7 +19,7 @@
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
             <br>
-            <span><c:out value="${loginError}"></c:out></span>
+            <p><c:out value="${loginError}"></c:out></p>
             <button type="submit">Login</button>
         </form>
         <a href="#" rel="modal:close">Close</a>
@@ -28,18 +28,18 @@
         <form method="POST" action="/register">
             <label for="username"><b>Create Username</b></label>
             <input type="text" placeholder="Enter Username" id="username" name="username" <c:out value="${usernameError}"></c:out> required>
-            <span><c:out value="${usernameError}"></c:out></span>
+            <p><c:out value="${usernameError}"></c:out></p>
             <br>
             <label for="email"><b>Create Email</b></label>
             <input type="email" placeholder="Enter Email" id="email" name="email" value="<c:out value="${emailInput}"></c:out>" required>
-            <span><c:out value="${emailError}"></c:out></span>
+            <p><c:out value="${emailError}"></c:out></p>
             <br>
             <label for="password"><b>Create Password</b></label>
             <input type="password" placeholder="Enter Password" id="password" name="password" required>
             <br>
             <label for="confirm_password">Confirm Password</label>
             <input type="password" placeholder="Confirm Password" id="confirm_password" name="confirm_password" required>
-            <span><c:out value="${passwordError}"></c:out></span>
+            <p><c:out value="${passwordError}"></c:out></p>
             <br>
             <button type="submit">Create Account</button>
         </form>
