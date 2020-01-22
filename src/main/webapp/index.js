@@ -1,3 +1,5 @@
+
+///////////INDEX////////////////////
 let solarSystem = $("#solarSystem");
 
 let updateSolarSystem = function(planets) {
