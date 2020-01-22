@@ -43,7 +43,7 @@ public class MySQLPlanetsDao implements Planets {
         try {
             String insertQuery = "INSERT INTO planets (planetname, planetdesc, user_id) VALUES (?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(3, planet.getUser_id());
+            stmt.setInt(3, planet.getUser_id());
             stmt.setString(1, planet.getName());
             stmt.setString(2, planet.getDescription());
             stmt.executeUpdate();
@@ -57,9 +57,11 @@ public class MySQLPlanetsDao implements Planets {
 
     private Planet extractPlanet(ResultSet rs) throws SQLException {
         return new Planet(
+                rs.getInt("id"),
                 rs.getString("planetname"),
                 rs.getString("planetdesc"),
-                rs.getInt("id"));
+                rs.getInt("user_id")
+                );
     }
 
     private List<Planet> createPlanetsFromResults(ResultSet rs) throws SQLException {
@@ -70,15 +72,15 @@ public class MySQLPlanetsDao implements Planets {
         return planets;
     }
 
- public Planet findPlanetById(long id){
+ public Planet findPlanetById(int id){
      String findPlanetQuery = "SELECT * FROM planets WHERE id = ?";
      Planet result = null;
         try {
             PreparedStatement stmt = connection.prepareStatement(findPlanetQuery);
-            stmt.setLong(1, id);
+            stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()){
-                result = new Planet((int) id,
+                result = new Planet(rs.getInt("id"),
                         rs.getString("planetname"),
                         rs.getString("planetdesc"),
                         rs.getInt("user_id"));
@@ -90,11 +92,11 @@ public class MySQLPlanetsDao implements Planets {
  };
 
     @Override
-    public List<Planet> usersPlanets(long id) {
-        String usersPlanetQuery = "SELECT planetname, planetdesc, planets.id from users join planets on users.id = planets.user_id WHERE users.id = ?";
+    public List<Planet> usersPlanets(int id) {
+        String usersPlanetQuery = "SELECT planetname, planetdesc, planets.id, planets.user_id from users join planets on users.id = planets.user_id WHERE users.id = ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(usersPlanetQuery);
-            stmt.setLong(1, id);
+            stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             return createPlanetsFromResults(rs);
         } catch (SQLException e) {
@@ -116,16 +118,23 @@ public class MySQLPlanetsDao implements Planets {
         }
     }
 
-    public int deletePlanet(long id){
+    public int deletePlanet(int id){
         String query = "DELETE FROM planets WHERE id = ?";
         try{
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, id);
+            stmt.setInt(1, id);
             int count = stmt.executeUpdate();
             return count;
         } catch (SQLException e) {
             throw new RuntimeException("Error deleting planet");
         }
+    }
+
+    public static void main(String args[]){
+        Config config = new Config();
+        MySQLPlanetsDao factory = new MySQLPlanetsDao(config);
+        Planet test = factory.findPlanetById(12);
+        System.out.println(test);
     }
 
 }

@@ -20,7 +20,7 @@ public class ShowPlanetServlet extends HttpServlet {
 //            response.sendRedirect("/splash");
 //            return;
 //        }
-        long planetId = Integer.parseInt(request.getParameter("id"));
+        int planetId = Integer.parseInt(request.getParameter("id"));
         Planet planet = DaoFactory.getPlanetsDao().findPlanetById(planetId);
         User user = DaoFactory.getUsersDao().findPlanetsOwnerById(planetId);
         request.setAttribute("planet", planet);
