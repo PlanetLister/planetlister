@@ -23,18 +23,19 @@
 <div class="planets">
     <c:forEach items="${planets}" var="planet">
         <div class="info">
-            <form class="edit" method="POST" action="/profile">
-                <input type="hidden" name="editSend" value="${planet.getId()}" />
-                <button id="edit" class="button" style="background-color: dodgerblue">Edit</button>
-            </form>
-            <form class="delete deleteBtn" name="deleteSend" method="POST" action="/profile" id="deleteBtn">
-                <input type="hidden" name="deleteSend" value="${planet.getId()}" />
-                <button id="delete" class="button" style="background-color: firebrick" name="deleteSend" value="${planet.getId()}" onclick="deleteClick()">Delete</button>
-            </form>
+
 
             <h1>Planet:</h1>
             <h2><span>${planet.getName()}</span></h2>
             <p>Description: ${planet.getDescription()}</p>
+            <form class="edit" method="POST" action="/profile">
+            <input type="hidden" name="editSend" value="${planet.getId()}" />
+            <button id="edit" class="button" style="background-color: dodgerblue">Edit</button>
+        </form>
+            <form class="delete deleteBtn" name="deleteSend" method="POST" action="/profile" id="deleteBtn">
+                <input type="hidden" name="deleteSend" value="${planet.getId()}" />
+                <button id="delete" class="button" style="background-color: firebrick" name="deleteSend" value="${planet.getId()}" onclick="deleteClick()">Delete</button>
+            </form>
         </div>
     </c:forEach>
 </div>

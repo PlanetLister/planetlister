@@ -29,7 +29,7 @@
     </div>
 </div>
 <div class="astronaut">
-    <img src="img/astronaut_bob.jpg" alt="" style="width: 400px">
+    <img src="../img/astronaut_bob.jpg" alt="" style="width: 400px">
     <div class="info">
         <h1>Created by: <c:out value="${user.getUsername()}"/></h1>
         <p>Comments? E-mail <c:out value="${user.getUsername()}"/> at <c:out value="${user.getEmail()}"/></p>
