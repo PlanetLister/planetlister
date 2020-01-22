@@ -20,48 +20,51 @@
 </div>
 <div id="createPlanet">
     <form class='info' method="post" action="/galaxy/planet/create">
-    <label for="pname"><b>Planet Name:</b></label>
-    <input type="text" placeholder="Enter name of planet" id="pname" name="pname" required>
+        <label for="pname"><b>Planet Name:</b></label>
+        <input type="text" placeholder="Enter name of planet" id="pname" name="pname" required>
         <br>
-    <label for="description"><b>Description:</b></label>
-    <textarea style='width: 50%; height: 150px;' placeholder="Enter Description" name="description" id="description" required></textarea>
-    <br>
+        <label for="description"><b>Description:</b></label>
+        <textarea style='width: 50%; height: 150px;' placeholder="Enter Description" name="description" id="description"
+                  required></textarea>
+        <br>
 
-            <c:forEach items="${categories}" var="category">
-                <input type="checkbox" name="allCategories" value="<c:out value="${category.getId()}"></c:out>"><c:out value="${category.getName()}"></c:out>
-            </c:forEach>
+        <c:forEach items="${categories}" var="category">
+            <input type="checkbox" name="allCategories" value="<c:out value="${category.getId()}"></c:out>"><c:out
+                value="${category.getName()}"></c:out>
+        </c:forEach>
 
-    <button type="submit" class='button'>Create</button>
+        <button type="submit" class='button'>Create</button>
     </form>
 </div>
 
 <div class="planets">
     <c:forEach items="${planets}" var="planet">
         <div class="info">
-
-
             <h1>Planet:</h1>
             <h2><span>${planet.getName()}</span></h2>
             <p>Description: ${planet.getDescription()}</p>
-            <form class="edit" method="POST" action="/profile">
-            <input type="hidden" name="editSend" value="${planet.getId()}" />
-            <button id="edit" class="button" style="background-color: dodgerblue">Edit</button>
-        </form>
-            <form class="delete deleteBtn" name="deleteSend" method="POST" action="/profile" id="deleteBtn">
-                <input type="hidden" name="deleteSend" value="${planet.getId()}" />
-                <button id="delete" class="button" style="background-color: firebrick" name="deleteSend" value="${planet.getId()}" onclick="return deleteClick()">Delete</button>
-            </form>
+                <form class="edit" method="POST" action="/profile">
+                    <input type="hidden" name="editSend" value="${planet.getId()}"/>
+                    <button id="edit" class="button" style="background-color: dodgerblue">Edit</button>
+                </form>
+                <form class="delete deleteBtn" name="deleteSend" method="POST" action="/profile" id="deleteBtn">
+                    <input type="hidden" name="deleteSend" value="${planet.getId()}"/>
+                    <button id="delete" class="button" style="background-color: firebrick" name="deleteSend"
+                            value="${planet.getId()}" onclick="return deleteClick()">Delete
+                    </button>
+                </form>
         </div>
     </c:forEach>
 </div>
 <script>
-    function deleteClick(){
+    function deleteClick() {
         var userConfirm = confirm("Are you sure you want to delete the planet?");
 
-        if(!userConfirm){
+        if (!userConfirm) {
             return false;
         } else {
-            this.$('.deleteBtn').submit();        }
+            this.$('.deleteBtn').submit();
+        }
     }
 
 </script>
