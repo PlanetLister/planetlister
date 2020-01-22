@@ -12,5 +12,5 @@ public interface Categories {
     Long insert(Category category);
 
     //function to display planets with respective categories
-    List<Planet> combined(Planet planet);
+    List<Category> combined(Planet planet);
 }
