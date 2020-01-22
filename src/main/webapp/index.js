@@ -8,12 +8,9 @@ let updateSolarSystem = function(planets) {
     }
 };
 
-$(document).on("click", "#add-planet", function() {
-    let planet = $("<li class='planet'><br><br>Planets go here<button class='remove-planet'>Remove</button></li>");
-    solarSystem.append(planet);
+$(window).on("load", function () {
     let planets = $(".planet");
     updateSolarSystem(planets);
-
 });
 
 $(document).on("click", ".remove-planet", function() {

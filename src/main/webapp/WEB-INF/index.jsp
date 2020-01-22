@@ -2,21 +2,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-<%--    <jsp:include page="/WEB-INF/partials/head.jsp">--%>
-<%--        <jsp:param name="title" value="Viewing all the planets!" />--%>
-<%--    </jsp:include>--%>
+    <jsp:include page="/WEB-INF/partials/head.jsp">
+        <jsp:param name="title" value="Welcome to my site!" />
+    </jsp:include>
 </head>
 <body>
-<%--    <jsp:include page="/WEB-INF/partials/navbar.jsp" />--%>
-    <div class="container">
-        <h1>Here's some planets!</h1>
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<ul id="solarSystem">
+    <li><img class="sun" src="img/sun.gif" alt=""></li>
 
-        <c:forEach items="${planets}" var="planet">
-            <div class="col-md-6">
-                <h2>${planet.getName()}</h2>
-                <p>${planet.getDescription()}</p>
-            </div>
-        </c:forEach>
-    </div>
+    <c:forEach items="${planets}" var="planet">
+        <li class='planet'><br><br><p>${planet.getName()}</p></li>
+    </c:forEach>
+
+</ul>
+<button id="add-planet">Add New Planet</button>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="index.js"></script>
 </body>
 </html>

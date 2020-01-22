@@ -46,10 +46,10 @@
         <a href="#" rel="modal:close">Close</a>
     </div>
     <div id="loginButtons">
-        <a href="#ex1" rel="modal:open">
+        <a href="#ex1" rel="modal:open" id="loginModal">
             <button class="button">Login</button>
         </a>
-        <a href="#ex2" rel="modal:open">
+        <a href="#ex2" rel="modal:open" id="registerModal">
             <button class="button">Sign Up</button>
         </a>
     </div>
@@ -59,5 +59,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"/>
+
+<c:if test="${reloaded != null}">
+    <script>$('#registerModal').click();</script>
+</c:if>
+
+<c:if test="${loginReload != null}">
+    <script>$('#loginModal').click();</script>
+</c:if>
 </body>
 </html>

@@ -102,6 +102,32 @@ public class MySQLPlanetsDao implements Planets {
         }
     }
 
+    public int updatePlanet(Planet planet){
+        String query = "UPDATE planets SET planetname = ?, planetdesc = ? WHERE id = ?";
+        try{
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, planet.getName());
+            stmt.setString(2, planet.getDescription());
+            stmt.setLong(3, planet.getId());
+            int count = stmt.executeUpdate();
+            return count;
+        }catch (SQLException e){
+            throw new RuntimeException("Error updating planet");
+        }
+    }
+
+    public int deletePlanet(long id){
+        String query = "DELETE FROM planets WHERE id = ?";
+        try{
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, id);
+            int count = stmt.executeUpdate();
+            return count;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting planet");
+        }
+    }
+
 }
 
 
