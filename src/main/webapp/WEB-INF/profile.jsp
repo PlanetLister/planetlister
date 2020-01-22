@@ -18,7 +18,22 @@
         <button class="button" id="create">Create Planet</button>
     </div>
 </div>
-<div id="createPlanet"></div>
+<div id="createPlanet">
+    <form class='info' method="post" action="/galaxy/planet/create">
+    <label for="pname"><b>Planet Name:</b></label>
+    <input type="text" placeholder="Enter name of planet" id="pname" name="pname" required>
+        <br>
+    <label for="description"><b>Description:</b></label>
+    <textarea style='width: 50%; height: 150px;' placeholder="Enter Description" name="description" id="description" required></textarea>
+    <br>
+
+            <c:forEach items="${categories}" var="category">
+                <input type="checkbox" name="allCategories" value="<c:out value="${category.getId()}"></c:out>"><c:out value="${category.getName()}"></c:out>
+            </c:forEach>
+
+    <button type="submit" class='button'>Create</button>
+    </form>
+</div>
 
 <div class="planets">
     <c:forEach items="${planets}" var="planet">

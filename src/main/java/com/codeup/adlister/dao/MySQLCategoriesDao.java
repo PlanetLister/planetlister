@@ -54,16 +54,16 @@ public class MySQLCategoriesDao implements Categories {
     }
 
     //function to add a category
-    public Long insert(Category category){
+    public Long insert(int id, int planetId){
         try{
-            String query = "INSERT INTO categories (name) VALUES (?)";
+            String query = "INSERT INTO ad_category (planet_id, category_id) VALUES (?, ?)";
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            stmt.setString(1, category.getName());
-            stmt.executeUpdate();
-            ResultSet rs = stmt.getGeneratedKeys();
-            rs.next();
+            stmt.setInt(1, planetId);
+            stmt.setInt(2, id);
 
-            return rs.getLong(1);
+            long count = stmt.executeUpdate();
+            return count;
+
         }catch (SQLException e){
             throw new RuntimeException("Error inserting category.", e);
         }

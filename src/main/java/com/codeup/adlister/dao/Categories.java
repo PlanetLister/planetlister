@@ -9,7 +9,7 @@ public interface Categories {
     List<Category> all();
 
     //function to add a category
-    Long insert(Category category);
+    Long insert(int id, int planetId);
 
     //function to display planets with respective categories
     List<Category> combined(Planet planet);

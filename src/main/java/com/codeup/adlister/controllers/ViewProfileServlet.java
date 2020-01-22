@@ -22,7 +22,7 @@ public class ViewProfileServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("user");
         int userId = (int) user.getId();
         user = DaoFactory.getUsersDao().findUserById(userId);
-
+        request.setAttribute("categories", DaoFactory.getCategoriesDao().all());
         request.setAttribute("user",user);
         request.setAttribute("planets", DaoFactory.getPlanetsDao().usersPlanets(userId));
 
