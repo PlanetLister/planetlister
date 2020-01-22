@@ -4,7 +4,7 @@
 <html>
 <head>
     <jsp:include page="partials/head.jsp">
-        <jsp:param name="title" value="Your Profile"/>
+        <jsp:param name="title" value="${user.getUsername()}'s Profile"/>
     </jsp:include>
 </head>
 <body style="background-image: none; background-color: black">
@@ -49,7 +49,7 @@
         </form>
             <form class="delete deleteBtn" name="deleteSend" method="POST" action="/profile" id="deleteBtn">
                 <input type="hidden" name="deleteSend" value="${planet.getId()}" />
-                <button id="delete" class="button" style="background-color: firebrick" name="deleteSend" value="${planet.getId()}" onclick="deleteClick()">Delete</button>
+                <button id="delete" class="button" style="background-color: firebrick" name="deleteSend" value="${planet.getId()}" onclick="return deleteClick()">Delete</button>
             </form>
         </div>
     </c:forEach>
@@ -58,9 +58,10 @@
     function deleteClick(){
         var userConfirm = confirm("Are you sure you want to delete the planet?");
 
-        if(userConfirm){
-            this.$('.deleteBtn').submit();
-        }
+        if(!userConfirm){
+            return false;
+        } else {
+            this.$('.deleteBtn').submit();        }
     }
 
 </script>

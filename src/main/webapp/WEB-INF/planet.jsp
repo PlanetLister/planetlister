@@ -10,7 +10,7 @@
 <html>
 <head>
     <jsp:include page="partials/head.jsp">
-        <jsp:param name="title" value="Please Log In"/>
+        <jsp:param name="title" value="${planet.getName()}"/>
     </jsp:include>
 </head>
 <body style="background-image: none; background-color: black">
