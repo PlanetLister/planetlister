@@ -28,9 +28,31 @@ body{
     font-family: 'Space Mono', monospace;
 }
 /*---------splash------------*/
+
 .title {
-    width: 100%;
     margin-bottom: -150px;
+    width: 100%;
+    -webkit-animation: animate 2s ease-in;
+    -moz-animation: animate 2s ease-in;
+    -ms-animation: animate 2s ease-in;
+    -o-animation: animate 2s ease-in;
+
+}
+@-webkit-keyframes animate {
+    0% { height: 10%; margin: 45% 45%; }
+    100% { height: 100%;  margin-bottom: -100px  }
+}
+@-moz-keyframes animate {
+    0% { height: 10%; margin: 45% 45%; }
+    100% { height: 100%; margin-bottom: -100px }
+}
+@-ms-keyframes animate {
+    0% { height: 10%; margin: 45% 45%; }
+    100% { height: 100%;  margin-bottom: -100px  }
+}
+@-o-keyframes animate {
+    0% { height: 10%; margin: 45% 45%; }
+    100% { height: 100%;  margin-bottom: -100px  }
 }
 .splashSun {
     border-radius: 50%;
