@@ -2,7 +2,7 @@
 <nav class="navbar">
     <ul class="nav_menu">
         <li class="menu_li">
-            <a class="menu_a" href="http://localhost:8080/index">
+            <a class="menu_a" href="/galaxy">
                 <img id="logoTitle" src="../../img/title.png" alt="">
                 <img id="logoPic" src="../../img/sun.gif" alt="">
             </a>
