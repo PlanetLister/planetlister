@@ -14,10 +14,10 @@ import java.io.IOException;
 @WebServlet(name = "controllers.ViewProfileServlet", urlPatterns = "/profile")
 public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        if (request.getSession().getAttribute("user") == null) {
-//            response.sendRedirect("/splash");
-//            return;
-//       }
+        if (request.getSession().getAttribute("user") == null) {
+            response.sendRedirect("/splash");
+            return;
+       }
 
         User user = (User) request.getSession().getAttribute("user");
         long userId = user.getId();
