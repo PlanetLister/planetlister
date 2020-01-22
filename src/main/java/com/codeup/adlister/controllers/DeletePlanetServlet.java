@@ -18,7 +18,8 @@ public class DeletePlanetServlet extends HttpServlet {
             response.sendRedirect("/splash");
             return;
         }
-        int planetID = (int) request.getSession().getAttribute("deleteSend");
+        int planetID = (int) request.getSession().getAttribute("planetId");
+
         DaoFactory.getPlanetsDao().deletePlanet(planetID);
         response.sendRedirect("/profile");
     }
