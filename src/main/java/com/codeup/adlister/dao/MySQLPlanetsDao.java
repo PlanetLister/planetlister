@@ -101,6 +101,47 @@ public class MySQLPlanetsDao implements Planets {
             throw new RuntimeException("Error retrieving users planets.", e);
         }
     }
+
+    public int updatePlanet(Planet planet){
+        String query = "UPDATE planets SET planetname = ?, planetdesc = ? WHERE id = ?";
+        try{
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, planet.getName());
+            stmt.setString(2, planet.getDescription());
+            stmt.setLong(3, planet.getId());
+            int count = stmt.executeUpdate();
+            return count;
+        }catch (SQLException e){
+            throw new RuntimeException("Error updating planet");
+        }
+    }
+
+    public int deletePlanet(long id){
+        String query = "DELETE FROM planets WHERE id = ?";
+        try{
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, id);
+            int count = stmt.executeUpdate();
+            return count;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting planet");
+        }
+    }
+
+//    public static void main(String args[]){
+//            Config config = new Config();
+//            List<Planet> planets = new MySQLPlanetsDao(config).all();
+//            System.out.println(planets);
+////            Planet test = new Planet(10, "Deimos Test", "New Deimos Description",  1);
+////            int anotherTest = new MySQLPlanetsDao(config).updatePlanet(test);
+////            System.out.println(anotherTest);
+////            planets = new MySQLPlanetsDao(config).all();
+////            System.out.println(planets);
+//            int test = new MySQLPlanetsDao(config).deletePlanet(10);
+//        System.out.println(test);
+//        System.out.println(planets);
+//
+//    }
 }
 
 

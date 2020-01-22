@@ -12,5 +12,6 @@ public interface Planets {
     Long insert(Planet planet);
     Planet findPlanetById(long id);
     List<Planet> usersPlanets(long id);
-
+    int updatePlanet(Planet planet);
+    int deletePlanet(long id);
 }
