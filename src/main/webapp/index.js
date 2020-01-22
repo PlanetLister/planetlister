@@ -54,3 +54,11 @@ $(document).on("click", "#create",function () {
         "</form>"
     );
 });
+// $(document).ready(function () {
+//     var bgColorArray = ['planet','planet1','planet2','planet3','planet4','planet5','planet6','planet7','planet8','planet9','planet10','planet11','planet12','planet13','planet14','planet15'],
+//         selectBG = bgColorArray[Math.floor(Math.random() * bgColorArray.length)];
+//
+//     $('.planet').css({'background': 'url(img/' + selectBG + '.gif)', 'background-size': 'cover',
+//     'background-position': 'center'});
+// });
+
