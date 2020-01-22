@@ -15,8 +15,7 @@
 </head>
 <body style="background-image: none; background-color: black">
 <jsp:include page="partials/navbar.jsp"/>
-<div id="profilePic"></div>
-<div class="forSale">
+<div id="planet${planet.getId()}" class="profilePic"></div><div class="forSale">
     <div class="info">
         <h1>Planet: <span><c:out value="${planet.getName()}"/> </span></h1>
         <h3>Description: <span><c:out value="${planet.getDescription()}"/></span></h3>

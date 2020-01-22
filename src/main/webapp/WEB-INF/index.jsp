@@ -13,13 +13,14 @@
 
     <c:forEach items="${planets}" var="planet">
         <a href="/galaxy/planet?id=<c:out value="${planet.getId()}"></c:out>">
-            <li class='planet'><br><br><p>${planet.getName()}</p></li>
+            <li id="planet${planet.getId()}" class='planet'>
+                <br><br><span class="name">${planet.getName()}</span>
+            </li>
         </a>
     </c:forEach>
-
 </ul>
-<button id="add-planet">Add New Planet</button>
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <script src="index.js"></script>
 </body>
 </html>
+

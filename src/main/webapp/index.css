@@ -285,12 +285,13 @@ body{
     border-radius: 50%;
     position: relative;
     margin-left: 35%;
-    margin-top: 10%;
+    margin-top: 15%;
     animation-name: rotate-s-loader;
     animation-iteration-count: infinite;
     animation-duration: 120s;
     animation-timing-function: linear;
 }
+
 
 @media only screen and (max-width: 1200px) {
     #solarSystem {
@@ -299,7 +300,7 @@ body{
         border-radius: 50%;
         position: relative;
         margin-left: 25%;
-        margin-top: 10%;
+        margin-top: 15%;
         animation-name: rotate-s-loader;
         animation-iteration-count: infinite;
         animation-duration: 120s;
@@ -318,17 +319,32 @@ body{
 
 .planet {
     list-style: none;
-    background-color: red;
+    background-color: #F33F4B;
     height: 100px;
     width: 100px;
     position: absolute;
     top: 50%;
     left: 50%;
     border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
 }
+#planet1{background-image: url("img/planet.gif")}
+#planet2{background-image: url("img/planet1.gif")}
+#planet3{background-image: url("img/planet2.gif")}
+#planet4{background-image: url("img/planet3.gif")}
+#planet5{background-image: url("img/planet4.gif")}
+#planet6{background-image: url("img/planet5.gif")}
+#planet7{background-image: url("img/planet6.gif")}
+#planet8{background-image: url("img/planet7.gif")}
+#planet9{background-image: url("img/planet8.gif")}
+#planet10{background-image: url("img/planet9.gif")}
+#planet11{background-image: url("img/planet10.gif")}
+#planet12{background-image: url("img/planet11.gif")}#planet13{background-image: url("img/planet12.gif")}#planet14{background-image: url("img/planet13.gif")}
 
 /*---------------Planet For Sale-----------------*/
-#profilePic{
+.profilePic{
     background-image: url("img/earth.gif");
     height: 500px;
     width: 100%;
@@ -386,4 +402,11 @@ body{
 }
 .edit{
     display: flex;
+}
+
+.name{
+    color: white;
+}
+.name:hover{
+    color: red;
 }
