@@ -39,7 +39,7 @@ public class MySQLPlanetsDao implements Planets {
 
 
     @Override
-    public Long insert(Planet planet) {
+    public int insert(Planet planet) {
         try {
             String insertQuery = "INSERT INTO planets (planetname, planetdesc, user_id) VALUES (?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
@@ -49,7 +49,7 @@ public class MySQLPlanetsDao implements Planets {
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
-            return rs.getLong(1);
+            return rs.getInt(1);
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new planet.", e);
         }
