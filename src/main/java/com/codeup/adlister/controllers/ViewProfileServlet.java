@@ -39,7 +39,7 @@ public class ViewProfileServlet extends HttpServlet {
         }
 
         if(delete != null){
-            request.getSession().setAttribute("planetId", delete);
+            request.getSession().setAttribute("delPlanetId", delete);
             response.sendRedirect("/galaxy/delete");
         }
     }

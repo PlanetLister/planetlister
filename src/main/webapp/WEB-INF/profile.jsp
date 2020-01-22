@@ -27,9 +27,9 @@
                 <input type="hidden" name="editSend" value="${planet.getId()}" />
                 <button id="edit" class="button" style="background-color: dodgerblue">Edit</button>
             </form>
-            <form class="delete" name="deleteSend" method="POST" action="/galaxy/delete">
+            <form class="delete deleteBtn" name="deleteSend" method="POST" action="/profile" id="deleteBtn">
                 <input type="hidden" name="deleteSend" value="${planet.getId()}" />
-                <button id="delete" class="button" style="background-color: firebrick" name="deleteSend" value="${planet.getId()}">Delete</button>
+                <button id="delete" class="button" style="background-color: firebrick" name="deleteSend" value="${planet.getId()}" onclick="deleteClick()">Delete</button>
             </form>
 
             <h1>Planet:</h1>
@@ -38,6 +38,16 @@
         </div>
     </c:forEach>
 </div>
+<script>
+    function deleteClick(){
+        var userConfirm = confirm("Are you sure you want to delete the planet?");
+
+        if(userConfirm){
+            this.$('.deleteBtn').submit();
+        }
+    }
+
+</script>
 
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous"></script>
