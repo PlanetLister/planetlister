@@ -330,18 +330,22 @@ body{
     background-position: center;
     text-align: center;
 }
-#planet1{background-image: url("img/planet.gif")}
-#planet2{background-image: url("img/planet1.gif")}
-#planet3{background-image: url("img/planet2.gif")}
-#planet4{background-image: url("img/planet3.gif")}
-#planet5{background-image: url("img/planet4.gif")}
-#planet6{background-image: url("img/planet5.gif")}
-#planet7{background-image: url("img/planet6.gif")}
-#planet8{background-image: url("img/planet7.gif")}
-#planet9{background-image: url("img/planet8.gif")}
-#planet10{background-image: url("img/planet9.gif")}
-#planet11{background-image: url("img/planet10.gif")}
-#planet12{background-image: url("img/planet11.gif")}#planet13{background-image: url("img/planet12.gif")}#planet14{background-image: url("img/planet13.gif")}
+#planet1, #planet16, #planet28{background-image: url("img/planet.gif")}
+#planet2, #planet17, #planet29{background-image: url("img/planet1.gif")}
+#planet3, #planet18, #planet30{background-image: url("img/planet2.gif")}
+#planet4, #planet19, #planet31{background-image: url("img/planet3.gif")}
+#planet5, #planet20, #planet32{background-image: url("img/planet4.gif")}
+#planet6, #planet21, #planet33{background-image: url("img/planet5.gif")}
+#planet7, #planet22, #planet34{background-image: url("img/planet6.gif")}
+#planet8, #planet23, #planet35{background-image: url("img/planet7.gif")}
+#planet9, #planet24, #planet36{background-image: url("img/planet8.gif")}
+#planet10, #planet25, #planet37{background-image: url("img/planet9.gif")}
+#planet11, #planet26, #planet38{background-image: url("img/planet10.gif")}
+#planet12, #planet27, #planet39{background-image: url("img/planet11.gif")}
+#planet13, #planet40{background-image: url("img/planet12.gif")}
+#planet14{background-image: url("img/planet13.gif")}
+#planet15{background-image: url("img/planet15.gif")}
+
 
 /*---------------Planet For Sale-----------------*/
 .profilePic{
@@ -401,13 +405,14 @@ body{
     font-family: 'Space Mono', monospace;
 }
 
+
 #createPlanet{
     display: none;
 }
 
 .edit{
-
 }
+
 
 .name{
     color: white;
