@@ -23,12 +23,14 @@ public class UpdateSerlvet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        int id = 11;
+        int userId = 1;
         String name = request.getParameter("planetName");
         String description = request.getParameter("planetDescription");
 
         if(name != null && description != null){
             if(!name.equals("") && !description.equals("")){
-                Planet update = new Planet(11, name, description, 1);
+                Planet update = new Planet(id, name, description, userId);
                 DaoFactory.getPlanetsDao().updatePlanet(update);
                 request.getRequestDispatcher("/WEB-INF/update.jsp").forward(request, response);
             }else{
