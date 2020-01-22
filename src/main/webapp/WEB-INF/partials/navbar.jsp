@@ -13,7 +13,7 @@
             </form>
         </li>
         <li class="menu_li">
-            <a class="menu_a" href="http://localhost:8080/profile"><img src="../../img/profile.png" alt=""></a>
+            <a class="menu_a" href="/profile"><img src="../../img/profile.png" alt=""></a>
         </li>
     </ul>
 </nav>
