@@ -15,11 +15,9 @@
                     <button type="reset" class="search" id="search-btn"></button>
                 </form>
             </li>
-            <li class="menu_li">
+            <li class="menu_li2">
                 <a class="menu_a" href="/profile"><img src="../../img/profile.png" alt=""></a>
-            </li>
-            <li class="menu_li">
-                <a class="menu_a" href="/logout">Log Out</a>
+                <a class="logout" href="/logout">Log Out</a>
             </li>
         </c:if>
 
