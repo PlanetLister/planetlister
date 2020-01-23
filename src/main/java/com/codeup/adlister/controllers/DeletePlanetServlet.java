@@ -21,8 +21,11 @@ public class DeletePlanetServlet extends HttpServlet {
         String planetid = (String) request.getSession().getAttribute("delPlanetId");
         int delplanetID = Integer.parseInt(planetid);
 
+        int allCat = DaoFactory.getCategoriesDao().deleteCategoriesPerPlanet(delplanetID);
+        if(allCat != 0){
+            DaoFactory.getPlanetsDao().deletePlanet(delplanetID);
+        }
 
-        int i = DaoFactory.getPlanetsDao().deletePlanet(delplanetID);
         response.sendRedirect("/profile");
     }
 }
