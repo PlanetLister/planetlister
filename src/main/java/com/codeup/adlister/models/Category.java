@@ -33,6 +33,6 @@ public class Category {
     }
 
     public String toString(){
-        return "";
+        return "{"+this.id+ " "+this.name+"}";
     }
 }

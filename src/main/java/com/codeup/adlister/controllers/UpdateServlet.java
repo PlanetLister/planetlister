@@ -26,6 +26,8 @@ public class UpdateServlet extends HttpServlet {
         request.setAttribute("pName", updatePlanet.getName());
         request.setAttribute("pDescription", updatePlanet.getDescription());
         request.setAttribute("pId", id);
+        request.setAttribute("categories", DaoFactory.getCategoriesDao().all());
+        request.setAttribute("planetCategories", DaoFactory.getCategoriesDao().combined(updatePlanet));
         request.getRequestDispatcher("/WEB-INF/update.jsp").forward(request, response);
     }
 
@@ -42,7 +44,18 @@ public class UpdateServlet extends HttpServlet {
             if(!name.equals("") && !description.equals("")){
                 Planet update = new Planet(id, name, description, userId);
                 int ok = DaoFactory.getPlanetsDao().updatePlanet(update);
+                String[] selectedCategories = request.getParameterValues("allCategories");
+
+
                 if(ok > 0){
+                    DaoFactory.getCategoriesDao().deleteCategoriesPerPlanet(update.getId());
+
+                    if(selectedCategories != null && selectedCategories.length != 0){
+                        for(int x=0; x < selectedCategories.length; x++){
+                            DaoFactory.getCategoriesDao().insert(Integer.parseInt(selectedCategories[x]), update.getId());
+                        }
+                    }
+
                     request.getSession().removeAttribute("planetId");
                     //request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
                     response.sendRedirect("/profile");
