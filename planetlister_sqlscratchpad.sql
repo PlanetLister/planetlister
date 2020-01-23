@@ -8,3 +8,10 @@ SELECT users.username, users.email from planets join users on planets.user_id = 
 
 
 SELECT * from users;
+
+
+UPDATE planets
+SET
+    user_id = 1
+WHERE
+        id = 9;
