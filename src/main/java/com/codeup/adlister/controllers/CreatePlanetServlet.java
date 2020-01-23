@@ -13,6 +13,14 @@ import java.io.IOException;
 @WebServlet("/galaxy/planet/create")
 public class CreatePlanetServlet extends HttpServlet {
 
+    protected void doGet (HttpServletRequest request, HttpServletResponse response) throws IOException {
+        if (request.getSession().getAttribute("user") == null) {
+            response.sendRedirect("/splash");
+            return;
+        }
+
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
         Planet planet = new Planet(

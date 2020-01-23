@@ -22,12 +22,8 @@
     <form class='info' method="post" action="/galaxy/planet/create">
         <label for="pname"><b>Planet Name:</b></label>
         <input type="text" placeholder="Enter name of planet" id="pname" name="pname" required>
-        <br>
-        <label for="description"><b>Description:</b></label>
-        <textarea style='width: 50%; height: 150px;' placeholder="Enter Description" name="description" id="description"
-                  required></textarea>
-        <br>
 
+    <br>
     <label for="description"><b>Description:</b></label>
     <textarea style='width: 50%; height: 150px;' placeholder="Enter Description" name="description" id="description" required></textarea>
     <br>
@@ -53,7 +49,7 @@
           
             <form class="delete deleteBtn" name="deleteSend" method="POST" action="/profile" id="deleteBtn">
                 <input type="hidden" name="deleteSend" value="${planet.getId()}" />
-                <button id="delete" class="button" style="background-color: firebrick" name="deleteSend" value="${planet.getId()}" onclick="deleteClick()">Delete</button>
+                <button id="delete" class="button" style="background-color: firebrick" name="deleteSend" value="${planet.getId()}" onclick="return deleteClick()">Delete</button>
             </form>
         </div>
     </c:forEach>
@@ -62,10 +58,10 @@
     function deleteClick() {
         var userConfirm = confirm("Are you sure you want to delete the planet?");
 
-        if (userConfirm) {
-            this.$('.deleteBtn').submit();
+        if (!userConfirm) {
+            return false
         } else {
-            this.$('.deletebtn').reset();
+            this.$('.deleteBtn').submit();
         }
     }
 
