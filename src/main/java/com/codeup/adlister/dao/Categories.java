@@ -13,4 +13,6 @@ public interface Categories {
 
     //function to display planets with respective categories
     List<Category> combined(Planet planet);
+
+    int deleteCategoriesPerPlanet(int id);
 }

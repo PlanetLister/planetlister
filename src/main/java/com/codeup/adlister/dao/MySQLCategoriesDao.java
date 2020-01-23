@@ -81,4 +81,17 @@ public class MySQLCategoriesDao implements Categories {
             throw new RuntimeException("Error inserting category.", e);
         }
     }
+
+    public int deleteCategoriesPerPlanet(int id){
+        String query = "DELETE FROM ad_category WHERE planet_id = ?";
+        try{
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setInt(1, id);
+            int count = stmt.executeUpdate();
+
+            return count;
+        }catch (SQLException e){
+            throw new RuntimeException("Error deleting all categories per planet");
+        }
+    }
 }

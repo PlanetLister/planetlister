@@ -62,10 +62,10 @@
     function deleteClick() {
         var userConfirm = confirm("Are you sure you want to delete the planet?");
 
-        if (!userConfirm) {
-            return false;
-        } else {
+        if (userConfirm) {
             this.$('.deleteBtn').submit();
+        } else {
+            this.$('.deletebtn').reset();
         }
     }
 
