@@ -9,6 +9,7 @@
 <body>
 <html>
 
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <form method="POST" action="/update" style="color:white;">
     <input type="hidden" name="updateId" value="${planetId}" />
@@ -19,6 +20,18 @@
     <label>Description:</label>
     <input type="text" name="planetDescription" value="<c:out value="${pDescription}"></c:out>"/>
     <span><c:out value="${descriptionError}"></c:out></span>
+    <br>
+
+    <c:forEach items="${categories}" var="category">
+            <c:choose>
+                <c:when test="${planetCategories.contains(category) == true}">
+                    <input checked type="checkbox" name="allCategories" value="<c:out value="${category.getId()}"></c:out>"><c:out value="${category.getName()}"></c:out>
+                </c:when>
+                <c:otherwise>
+                    <input type="checkbox" name="allCategories" value="<c:out value="${category.getId()}"></c:out>"><c:out value="${category.getName()}"></c:out>
+                </c:otherwise>
+            </c:choose>
+    </c:forEach>
     <br>
     <button>Update</button>
 </form>

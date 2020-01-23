@@ -8,6 +8,8 @@ import com.mysql.cj.jdbc.Driver;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class MySQLCategoriesDao implements Categories {
     private Connection connection = null;
@@ -78,7 +80,7 @@ public class MySQLCategoriesDao implements Categories {
             ResultSet rs = stmt.executeQuery();
             return createCategoriesFromResults(rs);
         }catch (SQLException e){
-            throw new RuntimeException("Error inserting category.", e);
+            throw new RuntimeException("Error getting categories.", e);
         }
     }
 
@@ -95,9 +97,19 @@ public class MySQLCategoriesDao implements Categories {
         }
     }
 
-    public static void main(String args[]){
-        Config config = new Config();
-        MySQLCategoriesDao test = new MySQLCategoriesDao(config);
-        System.out.println(test.deleteCategoriesPerPlanet(10));
-    }
+//    public static void main(String args[]){
+//        Config config = new Config();
+//        MySQLCategoriesDao test = new MySQLCategoriesDao(config);
+//        List<Category> all = test.all();
+//
+//        List<Category> perPlanet = test.combined(new MySQLPlanetsDao(config).findPlanetById(15));
+//
+//
+//        for(int x = 0; x < all.size(); x++){
+//            System.out.println(all.get(x));
+//            if()
+//        }
+//
+//
+//    }
 }
