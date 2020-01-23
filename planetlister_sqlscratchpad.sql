@@ -9,8 +9,19 @@ SELECT users.username, users.email from planets join users on planets.user_id = 
 
 
 
+
 SELECT * from users;
 INSERT INTO users (username, email, password) VALUES ('testupdate', 'updatebois@juno.com', 'updatethispw');
 
 
 UPDATE users SET username = 'digornobetterthandelivery', email = 'ihatepizzahutdominospapajohns@digorno.com' WHERE id = 8;
+
+SELECT * from users;
+
+
+UPDATE planets
+SET
+    user_id = 1
+WHERE
+        id = 9;
+

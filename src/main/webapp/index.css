@@ -114,7 +114,7 @@ body{
 }
 
 
-
+/*///////////search///////////////////////////*/
 @media only screen and (max-width: 1680px) {
     #content {
         position: absolute;
@@ -149,6 +149,7 @@ body{
     -webkit-animation-iteration-count: 1;
     animation-iteration-count: 1;
 }
+
 .input {
     box-sizing: border-box;
     width: 50px;
