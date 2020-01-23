@@ -102,7 +102,7 @@ public class MySQLUsersDao implements Users {
     }
 
     public User findPlanetsOwnerById(long id){
-        String PlanetsOwnerQuery = "SELECT users.username, users.email from planets join users on planets.user_id = users.id WHERE planets.id = ?";
+        String PlanetsOwnerQuery = "SELECT users.username, users.email from     planets join users on planets.user_id = users.id WHERE planets.id = ?";
         User result = null;
         try{
             PreparedStatement stmt = connection.prepareStatement(PlanetsOwnerQuery);
