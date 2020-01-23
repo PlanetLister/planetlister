@@ -15,11 +15,14 @@
 </head>
 <body style="background-image: none; background-color: black">
 <jsp:include page="partials/navbar.jsp"/>
-<div id="planet${planet.getId()}" class="profilePic"></div><div class="forSale">
+<div id="planet${planet.getId()}" class="profilePic"></div>
+<div class="forSale">
     <div class="info">
         <h1>Planet: <span><c:out value="${planet.getName()}"/> </span></h1>
         <h3>Description: <span><c:out value="${planet.getDescription()}"/></span></h3>
-        <button class="button" id="buy">Buy Now</button>
+        <form method="POST" action="/buy">
+            <button class="button" id="buy">Buy Now</button>
+        </form>
         <ul>
             <c:forEach items="${categories}" var="category">
                 <li>${category.getName()}</li>
@@ -36,9 +39,9 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
 <script src="../index.js"></script>
-
 
 
 </body>

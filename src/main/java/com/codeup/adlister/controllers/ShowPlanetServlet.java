@@ -26,7 +26,7 @@ public class ShowPlanetServlet extends HttpServlet {
         Planet planet = DaoFactory.getPlanetsDao().findPlanetById(planetId);
         User user = DaoFactory.getUsersDao().findPlanetsOwnerById(planetId);
         List<Category> category = DaoFactory.getCategoriesDao().combined(planet);
-        request.setAttribute("planet", planet);
+        request.getSession().setAttribute("planet", planet);
         request.setAttribute("user", user);
         request.setAttribute("categories", category);
         request.getRequestDispatcher("/WEB-INF/planet.jsp").forward(request, response);

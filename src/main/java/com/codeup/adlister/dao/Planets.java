@@ -14,4 +14,5 @@ public interface Planets {
     List<Planet> usersPlanets(int id);
     int updatePlanet(Planet planet);
     int deletePlanet(int id);
+    int changeOwnerPlanet(Planet planet);
 }
