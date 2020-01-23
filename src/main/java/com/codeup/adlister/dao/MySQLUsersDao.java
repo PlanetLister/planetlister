@@ -102,7 +102,7 @@ public class MySQLUsersDao implements Users {
     }
 
     public User findPlanetsOwnerById(long id){
-        String PlanetsOwnerQuery = "SELECT users.username, users.email from     planets join users on planets.user_id = users.id WHERE planets.id = ?";
+        String PlanetsOwnerQuery = "SELECT users.username, users.email from planets join users on planets.user_id = users.id WHERE planets.id = ?";
         User result = null;
         try{
             PreparedStatement stmt = connection.prepareStatement(PlanetsOwnerQuery);
@@ -120,29 +120,34 @@ public class MySQLUsersDao implements Users {
         return result;
     }
 
+//    public int updateUser(User user){
+//        String query = "UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?";
+//        try {
+//            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+//            stmt.setString(1, user.getUsername());
+//            stmt.setString(2, user.getEmail());
+//            stmt.setString(3, user.getPassword());
+//            stmt.setInt(4, (int) user.getId());
+//            int count = stmt.executeUpdate();
+//            return count;
+//        } catch (SQLException e){
+//            throw new RuntimeException("Error updating user");
+//        }
+//    }
+
     public int updateUser(User user){
-        String query = "UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?";
-        try {
+        String query = "UPDATE users SET username = ?, email = ? where id =?";
+        try{
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getEmail());
-            stmt.setString(3, user.getPassword());
-            stmt.setInt(4, (int) user.getId());
+            stmt.setInt(3, (int) user.getId());
             int count = stmt.executeUpdate();
             return count;
-        } catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException("Error updating user");
         }
-    }
 
-//    public static void main(String args[]){
-//        Config config = new Config();
-//        Users test = new MySQLUsersDao(config);
-//        //test.insert(new User("username2", "user@email.com", "P@ssw0rd", "avater"));
-//        User mia = test.findByUsername("username2");
-//        System.out.println(mia);
-//        System.out.println(Password.check("P@ssw0rd",mia.getPassword()));
-//    }
-
+}
 }
 

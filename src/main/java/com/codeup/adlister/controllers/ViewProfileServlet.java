@@ -32,6 +32,7 @@ public class ViewProfileServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String edit = request.getParameter("editSend");
         String delete = request.getParameter("deleteSend");
+        Integer profileIDtoUpdate = Integer.parseInt(request.getParameter("profileUpdateSend"));
 
         if(edit != null){
             request.getSession().setAttribute("planetId", edit);
@@ -41,6 +42,14 @@ public class ViewProfileServlet extends HttpServlet {
         if(delete != null){
             request.getSession().setAttribute("delPlanetId", delete);
             response.sendRedirect("/galaxy/delete");
+        }
+
+        if(profileIDtoUpdate > 0){
+            String newUsername = request.getParameter("uname");
+            String newEmail = request.getParameter("umail");
+            User user = new User(profileIDtoUpdate, newUsername, newEmail);
+            DaoFactory.getUsersDao().updateUser(user);
+            response.sendRedirect("/galaxy");
         }
     }
 }
