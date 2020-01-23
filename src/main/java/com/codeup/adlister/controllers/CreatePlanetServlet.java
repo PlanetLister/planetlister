@@ -13,6 +13,14 @@ import java.io.IOException;
 @WebServlet("/galaxy/planet/create")
 public class CreatePlanetServlet extends HttpServlet {
 
+    protected void doGet (HttpServletRequest request, HttpServletResponse response) throws IOException {
+        if (request.getSession().getAttribute("user") == null) {
+            response.sendRedirect("/splash");
+            return;
+        }
+
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
         Planet planet = new Planet(
@@ -21,18 +29,14 @@ public class CreatePlanetServlet extends HttpServlet {
                 (int) user.getId()
                 );
         int idNew = DaoFactory.getPlanetsDao().insert(planet);
-        String[] selectedCategories = new String[100];
+        String[] selectedCategories = request.getParameterValues("allCategories");
 
-        if(idNew != 0){
-            selectedCategories = request.getParameterValues("allCategories");
-        }
+        if(idNew != 0 && selectedCategories != null && selectedCategories.length != 0){
 
-        if(selectedCategories != null || selectedCategories.length != 0){
             for(int x=0; x < selectedCategories.length; x++){
                 DaoFactory.getCategoriesDao().insert(Integer.parseInt(selectedCategories[x]), idNew);
             }
         }
-
 
         response.sendRedirect("/galaxy");
     }
