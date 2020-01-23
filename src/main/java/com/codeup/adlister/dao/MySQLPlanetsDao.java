@@ -130,6 +130,23 @@ public class MySQLPlanetsDao implements Planets {
         }
     }
 
+    public List<Planet> search(String userInput){
+        String query = "SELECT * FROM planets WHERE planetname LIKE ? OR planetdesc LIKE ?";
+        String queryWildCard = userInput + "%";
+
+        try{
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, queryWildCard);
+            stmt.setString(2, queryWildCard);
+
+            ResultSet rs = stmt.executeQuery();
+
+            return createPlanetsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error searching for planets");
+        }
+    }
+
     public static void main(String args[]){
         Config config = new Config();
         MySQLPlanetsDao factory = new MySQLPlanetsDao(config);
