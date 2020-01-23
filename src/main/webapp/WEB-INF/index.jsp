@@ -33,7 +33,7 @@
 
         if(search.value != ""){
             search.setAttribute("class", "input square");
-            document.getElementById('search-btn').setAttribute("class", 'search close');
+            document.getElementById('search-btn').setAttribute("class", 'search');
         }
         //on load, the search input would get cursor at the end of the input
         search.focus();
