@@ -405,6 +405,12 @@ body{
     font-family: 'Space Mono', monospace;
 }
 
+#\#submitUpdateForm{
+    font-size:12px;
+    width: 120px;
+}
+
+
 
 #createPlanet{
     display: none;

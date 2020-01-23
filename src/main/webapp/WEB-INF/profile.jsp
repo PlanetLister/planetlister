@@ -16,11 +16,10 @@
         <h1><span><c:out value="${user.getUsername()}"/></span></h1>
         <h3>Email: <span><c:out value="${user.getEmail()}"/></span></h3>
         <button class="button" id="create">Create Planet</button>
-<%--        <button class="button" id="update">Update Profile</button>--%>
+        <button class="button" id="update">Update Profile</button>
     </div>
 </div>
 
-<button class="button" id="update">Update Profile</button>
 
 
 <div id="createPlanet">
@@ -49,7 +48,7 @@
         <label for="uemail"><b>E-mail:</b></label>
         <input type="text" id="uemail" name="uemail" value="${user.getEmail()}" required>
         <br>
-        <button type="submit" class="button">Update Profile</button>
+        <button type="submit" class="button" id="#submitUpdateForm">Update Profile</button>
     </form>
 </div>
 

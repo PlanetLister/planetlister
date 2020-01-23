@@ -40,9 +40,7 @@ $(document).on("click", "#buy",function () {
 });
 
 $(document).on("click", "#update",function (){
-    alert("This is working");
-    console.log("hello there!");
-    // $("#updateUserForm").toggle();
+    $("#updateUserForm").toggle();
 });
 
 ///////////create planet///////////////
@@ -61,10 +59,3 @@ $(document).on("click", "#create",function () {
     // );
     $("#createPlanet").toggle();
 });
-
-// // update user jquery  -kendog //
-// $(document).on("click", "#update",function (){
-//     alert("This is working");
-//     console.log("hello there!");
-//     // $("#updateUserForm").toggle();
-// });
