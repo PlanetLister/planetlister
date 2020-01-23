@@ -18,7 +18,11 @@ public interface Planets {
     int updatePlanet(Planet planet);
     //delete a planet
     int deletePlanet(int id);
+
     int changeOwnerPlanet(Planet planet);
+
     //search planets
     List<Planet> search(String userInput);
+
+
 }
