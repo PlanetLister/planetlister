@@ -9,6 +9,12 @@
         </li>
 
         <c:if test="${user != null}">
+            <li class="menu_li">
+                <form id="content" method="POST">
+                    <input type="text" name="input" class="input" id="search-input" value="<c:out value="${userInput}"></c:out>">
+                    <button type="reset" class="search" id="search-btn"></button>
+                </form>
+            </li>
             <li class="menu_li2">
                 <a class="menu_a" href="/profile"><img src="../../img/profile.png" alt=""></a>
                 <a class="logout" href="/logout">Log Out</a>
