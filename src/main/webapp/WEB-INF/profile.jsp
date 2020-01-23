@@ -40,7 +40,7 @@
 </div>
 
 <div id="updateUserForm">
-    <form class="info" method="post" action="/profile/update">
+    <form class="info" method="post" action="/profile">
         <label for="uname"><b>Username:</b></label>
         <input type="text" id="uname" name="uname" value="${user.getUsername()}" required>
         <br>
@@ -48,7 +48,7 @@
         <label for="uemail"><b>E-mail:</b></label>
         <input type="text" id="uemail" name="uemail" value="${user.getEmail()}" required>
         <br>
-        <button type="submit" class="button" id="#submitUpdateForm">Update Profile</button>
+        <button type="submit" class="button" id="#submitUpdateForm" name="profileUpdateSend" value="${user.getId()}">Update Profile</button>
     </form>
 </div>
 
