@@ -7,4 +7,10 @@ SELECT planets.planetname, planets.planetdesc, planets.id from users join planet
 SELECT users.username, users.email from planets join users on planets.user_id = users.id WHERE planets.id = 4;
 
 
+
+
 SELECT * from users;
+INSERT INTO users (username, email, password) VALUES ('testupdate', 'updatebois@juno.com', 'updatethispw');
+
+
+UPDATE users SET username = 'digornobetterthandelivery', email = 'ihatepizzahutdominospapajohns@digorno.com' WHERE id = 8;

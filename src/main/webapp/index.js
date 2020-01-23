@@ -39,6 +39,12 @@ $(document).on("click", "#buy",function () {
     alert("Thank you for your purchase.");
 });
 
+$(document).on("click", "#update",function (){
+    alert("This is working");
+    console.log("hello there!");
+    // $("#updateUserForm").toggle();
+});
+
 ///////////create planet///////////////
 $(document).on("click", "#create",function () {
     // $("#createPlanet").html(
@@ -55,3 +61,10 @@ $(document).on("click", "#create",function () {
     // );
     $("#createPlanet").toggle();
 });
+
+// // update user jquery  -kendog //
+// $(document).on("click", "#update",function (){
+//     alert("This is working");
+//     console.log("hello there!");
+//     // $("#updateUserForm").toggle();
+// });

@@ -16,8 +16,13 @@
         <h1><span><c:out value="${user.getUsername()}"/></span></h1>
         <h3>Email: <span><c:out value="${user.getEmail()}"/></span></h3>
         <button class="button" id="create">Create Planet</button>
+<%--        <button class="button" id="update">Update Profile</button>--%>
     </div>
 </div>
+
+<button class="button" id="update">Update Profile</button>
+
+
 <div id="createPlanet">
     <form class='info' method="post" action="/galaxy/planet/create">
         <label for="pname"><b>Planet Name:</b></label>
@@ -32,6 +37,19 @@
         </c:forEach>
 
         <button type="submit" class='button'>Create</button>
+    </form>
+</div>
+
+<div id="updateUserForm">
+    <form class="info" method="post" action="/profile/update">
+        <label for="uname"><b>Username:</b></label>
+        <input type="text" id="uname" name="uname" value="${user.getUsername()}" required>
+        <br>
+
+        <label for="uemail"><b>E-mail:</b></label>
+        <input type="text" id="uemail" name="uemail" value="${user.getEmail()}" required>
+        <br>
+        <button type="submit" class="button">Update Profile</button>
     </form>
 </div>
 

@@ -118,6 +118,8 @@ public class MySQLPlanetsDao implements Planets {
         }
     }
 
+
+
     public int deletePlanet(int id){
         String query = "DELETE FROM planets WHERE id = ?";
         try{

@@ -388,7 +388,7 @@ body{
 .profile{
     display: flex;
 }
-#create{
+#create, #update{
     color: #F33F4B;
     background-color: #5FA871;
     background-image: url("img/stripe.png");
@@ -407,6 +407,10 @@ body{
 
 
 #createPlanet{
+    display: none;
+}
+
+#updateUserForm{
     display: none;
 }
 
