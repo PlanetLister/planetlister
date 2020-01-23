@@ -21,7 +21,7 @@
         <h1>Planet: <span><c:out value="${planet.getName()}"/> </span></h1>
         <h3>Description: <span><c:out value="${planet.getDescription()}"/></span></h3>
         <form method="POST" action="/buy">
-            <button class="button" id="buy">Buy Now</button>
+            <button class="button" id="buy" value="${planet.getId()}">Buy Now</button>
         </form>
         <ul>
             <c:forEach items="${categories}" var="category">

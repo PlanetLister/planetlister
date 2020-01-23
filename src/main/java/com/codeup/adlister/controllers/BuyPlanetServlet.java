@@ -12,11 +12,12 @@ import java.io.IOException;
 
 @WebServlet("/buy")
 public class BuyPlanetServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Planet planet = (Planet)request.getSession().getAttribute("planet");
 
 //        request.setAttribute("planets", DaoFactory.getPlanetsDao().changeOwnerPlanet(planet));
         DaoFactory.getPlanetsDao().changeOwnerPlanet(planet);
+        response.sendRedirect("/profile");
     }
 }

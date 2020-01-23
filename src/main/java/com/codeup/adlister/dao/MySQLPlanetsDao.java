@@ -126,6 +126,7 @@ public class MySQLPlanetsDao implements Planets {
             int count = stmt.executeUpdate();
             return count;
         }catch (SQLException e){
+            e.printStackTrace();
             throw new RuntimeException("Error updating planet");
         }
     }
