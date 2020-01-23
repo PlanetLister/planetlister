@@ -152,6 +152,7 @@ public class MySQLPlanetsDao implements Planets {
         MySQLPlanetsDao factory = new MySQLPlanetsDao(config);
         Planet test = factory.findPlanetById(12);
         System.out.println(test);
+
     }
 
 }

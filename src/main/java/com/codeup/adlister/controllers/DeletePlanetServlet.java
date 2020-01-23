@@ -22,9 +22,9 @@ public class DeletePlanetServlet extends HttpServlet {
         int delplanetID = Integer.parseInt(planetid);
 
         int allCat = DaoFactory.getCategoriesDao().deleteCategoriesPerPlanet(delplanetID);
-        if(allCat != 0){
-            DaoFactory.getPlanetsDao().deletePlanet(delplanetID);
-        }
+
+        DaoFactory.getPlanetsDao().deletePlanet(delplanetID);
+
 
         response.sendRedirect("/profile");
     }

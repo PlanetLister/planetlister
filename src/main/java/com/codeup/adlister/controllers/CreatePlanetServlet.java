@@ -29,18 +29,14 @@ public class CreatePlanetServlet extends HttpServlet {
                 (int) user.getId()
                 );
         int idNew = DaoFactory.getPlanetsDao().insert(planet);
-        String[] selectedCategories = new String[100];
+        String[] selectedCategories = request.getParameterValues("allCategories");
 
-        if(idNew != 0){
-            selectedCategories = request.getParameterValues("allCategories");
-        }
+        if(idNew != 0 && selectedCategories != null && selectedCategories.length != 0){
 
-        if(selectedCategories != null || selectedCategories.length != 0){
             for(int x=0; x < selectedCategories.length; x++){
                 DaoFactory.getCategoriesDao().insert(Integer.parseInt(selectedCategories[x]), idNew);
             }
         }
-
 
         response.sendRedirect("/galaxy");
     }
