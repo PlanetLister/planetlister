@@ -389,7 +389,7 @@ body{
 .profile{
     display: flex;
 }
-#create{
+#create, #update{
     color: #F33F4B;
     background-color: #5FA871;
     background-image: url("img/stripe.png");
@@ -406,8 +406,18 @@ body{
     font-family: 'Space Mono', monospace;
 }
 
+#\#submitUpdateForm{
+    font-size:12px;
+    width: 120px;
+}
+
+
 
 #createPlanet{
+    display: none;
+}
+
+#updateUserForm{
     display: none;
 }
 

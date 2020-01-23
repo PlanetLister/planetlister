@@ -39,6 +39,10 @@ $(document).on("click", "#buy",function () {
     alert("Thank you for your purchase.");
 });
 
+$(document).on("click", "#update",function (){
+    $("#updateUserForm").toggle();
+});
+
 ///////////create planet///////////////
 $(document).on("click", "#create",function () {
     // $("#createPlanet").html(

@@ -16,7 +16,7 @@ public class UpdateServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         if(request.getSession().getAttribute("user") == null){
-            response.sendRedirect("/login");
+            response.sendRedirect("/splash");
             return;
         }
 
