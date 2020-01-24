@@ -20,9 +20,14 @@
     <div class="info">
         <h1>Planet: <span><c:out value="${planet.getName()}"/> </span></h1>
         <h3>Description: <span><c:out value="${planet.getDescription()}"/></span></h3>
-        <form method="POST" action="/buy">
-            <button class="button" id="buy" value="${planet.getId()}">Buy Now</button>
-        </form>
+
+        <c:if test="${validate != null}">
+            <form method="POST" action="/buy">
+                <input type="hidden" name="planet" value="${planet.getId()}">
+                <button class="button" id="buy">Buy Now</button>
+            </form>
+        </c:if>
+
         <ul>
             <c:forEach items="${categories}" var="category">
                 <li>${category.getName()}</li>
@@ -34,8 +39,8 @@
 <div class="astronaut">
     <img src="../img/astronaut_bob.jpg" alt="" style="width: 400px">
     <div class="info">
-        <h1>Created by: <c:out value="${user.getUsername()}"/></h1>
-        <p>Comments? E-mail <c:out value="${user.getUsername()}"/> at <c:out value="${user.getEmail()}"/></p>
+        <h1>Created by: <c:out value="${planetUser.getUsername()}"/></h1>
+        <p>Comments? E-mail <c:out value="${planetUser.getUsername()}"/> at <c:out value="${planetUser.getEmail()}"/></p>
     </div>
 </div>
 

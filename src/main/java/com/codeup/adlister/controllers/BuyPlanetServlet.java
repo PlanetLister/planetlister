@@ -2,6 +2,7 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Planet;
+import com.codeup.adlister.models.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,10 +15,11 @@ import java.io.IOException;
 public class BuyPlanetServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Planet planet = (Planet)request.getSession().getAttribute("planet");
-
-//        request.setAttribute("planets", DaoFactory.getPlanetsDao().changeOwnerPlanet(planet));
-        DaoFactory.getPlanetsDao().changeOwnerPlanet(planet);
+        int id = Integer.parseInt(request.getParameter("planet"));
+        Planet planet = DaoFactory.getPlanetsDao().findPlanetById(id);
+        User user = (User) request.getSession().getAttribute("user");
+        int idUser = (int) user.getId();
+        DaoFactory.getPlanetsDao().changeOwnerPlanet(planet,idUser);
         response.sendRedirect("/profile");
     }
 }
