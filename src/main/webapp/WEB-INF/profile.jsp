@@ -40,14 +40,18 @@
 </div>
 
 <div id="updateUserForm">
-    <form class="info" method="post" action="/profile">
+    <form class="info" method="POST" action="/profile">
+        <input type="hidden" name="updateId" value="${user.getId()}" />
         <label for="uname"><b>Username:</b></label>
         <input type="text" id="uname" name="uname" value="${user.getUsername()}" required>
+        <p><c:out value="${usernameError}"></c:out></p>
         <br>
 
         <label for="uemail"><b>E-mail:</b></label>
         <input type="text" id="uemail" name="uemail" value="${user.getEmail()}" required>
+        <p><c:out value="${emailError}"></c:out></p>
         <br>
+        <p><c:out value="${generalError}"></c:out></p>
         <button type="submit" class="button" id="#submitUpdateForm" name="profileUpdateSend" value="${user.getId()}">Update Profile</button>
     </form>
 </div>
