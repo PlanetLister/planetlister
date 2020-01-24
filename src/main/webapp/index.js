@@ -31,7 +31,8 @@ const expand = () => {
     input.classList.toggle("square");
 };
 
-searchBtn.addEventListener("click", expand);
+if (searchBtn != null){
+searchBtn.addEventListener("click", expand);}
 
 
 //profile pic hover///
@@ -75,11 +76,4 @@ $(document).on("click", "#create",function () {
     }
 });
 
-// $(document).on("click", "#create", function () {
-//     $("#createPlanet").toggle();
-// });
-//
-// $(document).on("click", "#update", function () {
-//     $("#updateUserForm").toggle();
-// });
 
