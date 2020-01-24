@@ -31,7 +31,7 @@ const expand = () => {
     input.classList.toggle("square");
 };
 
-// searchBtn.addEventListener("click", expand);
+searchBtn.addEventListener("click", expand);
 
 
 ////////////planet/////////
@@ -56,3 +56,11 @@ $(document).on("click", "#create",function () {
         $("#updateUserForm").toggle();
     }
 });
+
+// $(document).on("click", "#create", function () {
+//     $("#createPlanet").toggle();
+// });
+//
+// $(document).on("click", "#update", function () {
+//     $("#updateUserForm").toggle();
+// });
