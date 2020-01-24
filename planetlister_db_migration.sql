@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS planetlister_db;
+
 CREATE DATABASE IF NOT EXISTS planetlister_db;
 USE planetlister_db;
 
@@ -13,7 +15,6 @@ CREATE TABLE users (
     password VARCHAR(100) NOT NULL,
     filepath_to_avatar VARCHAR(120) DEFAULT NULL,
     PRIMARY KEY (id)
-
 );
 
 CREATE TABLE planets (
