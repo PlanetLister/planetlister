@@ -10,5 +10,6 @@ public interface Users {
     Long insert(User user);
     User findUserById(long id);
     User findPlanetsOwnerById(long id);
+    int updateUser(User user);
 
 }

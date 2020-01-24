@@ -96,20 +96,4 @@ public class MySQLCategoriesDao implements Categories {
             throw new RuntimeException("Error deleting all categories per planet");
         }
     }
-
-//    public static void main(String args[]){
-//        Config config = new Config();
-//        MySQLCategoriesDao test = new MySQLCategoriesDao(config);
-//        List<Category> all = test.all();
-//
-//        List<Category> perPlanet = test.combined(new MySQLPlanetsDao(config).findPlanetById(15));
-//
-//
-//        for(int x = 0; x < all.size(); x++){
-//            System.out.println(all.get(x));
-//            if()
-//        }
-//
-//
-//    }
 }
