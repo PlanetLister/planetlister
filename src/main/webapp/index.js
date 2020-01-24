@@ -82,4 +82,3 @@ $(document).on("click", "#create",function () {
 // $(document).on("click", "#update", function () {
 //     $("#updateUserForm").toggle();
 // });
-
