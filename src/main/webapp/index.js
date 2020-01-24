@@ -76,4 +76,14 @@ $(document).on("click", "#create",function () {
     }
 });
 
+<<<<<<< HEAD
 
+=======
+// $(document).on("click", "#create", function () {
+//     $("#createPlanet").toggle();
+// });
+//
+// $(document).on("click", "#update", function () {
+//     $("#updateUserForm").toggle();
+// });
+>>>>>>> d5bfa36d47805039f6bb88703c6fe0b7403c6b19
