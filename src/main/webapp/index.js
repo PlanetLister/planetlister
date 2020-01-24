@@ -34,6 +34,24 @@ const expand = () => {
 searchBtn.addEventListener("click", expand);
 
 
+//profile pic hover///
+function showHover(img) {
+    if(img) {
+        img.src = 'img/profileHover.png';
+    }
+}
+function showNormal(img) {
+    if(img) {
+        img.src = 'img/profile.png';
+    }
+}
+$('#ex1').mouseover(function(){
+    showHover(this);
+}).mouseout(function(){
+    showNormal(this);
+});
+
+
 ////////////planet/////////
 $(document).on("click", "#buy",function () {
     alert("Thank you for your purchase.");
@@ -64,3 +82,4 @@ $(document).on("click", "#create",function () {
 // $(document).on("click", "#update", function () {
 //     $("#updateUserForm").toggle();
 // });
+

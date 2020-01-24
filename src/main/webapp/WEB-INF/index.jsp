@@ -7,7 +7,7 @@
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/navbarIndex.jsp"/>
 <p style="color:white;"><c:out value="${errorMessage}"></c:out></p>
 <ul id="solarSystem">
     <li><img class="sun" src="img/sun.gif" alt=""></li>

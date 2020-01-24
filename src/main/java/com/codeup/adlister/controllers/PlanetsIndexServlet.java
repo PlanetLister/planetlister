@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+import static com.codeup.adlister.dao.DaoFactory.*;
+
 @WebServlet("/galaxy")
 public class PlanetsIndexServlet extends HttpServlet {
 
@@ -20,7 +22,7 @@ public class PlanetsIndexServlet extends HttpServlet {
             response.sendRedirect("/splash");
             return;
         }
-        request.setAttribute("planets", DaoFactory.getPlanetsDao().all());
+        request.setAttribute("planets", getPlanetsDao().all());
         request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request,response);
     }
 
@@ -28,7 +30,7 @@ public class PlanetsIndexServlet extends HttpServlet {
         String userSearch = request.getParameter("input");
 
         if(userSearch != null && !userSearch.equals("")){
-            List<Planet> planets = DaoFactory.getPlanetsDao().search(userSearch);
+            List<Planet> planets = getPlanetsDao().search(userSearch);
             if(!planets.isEmpty()){
                 request.setAttribute("planets", planets);
                 request.setAttribute("userInput", request.getParameter("input"));
@@ -39,7 +41,7 @@ public class PlanetsIndexServlet extends HttpServlet {
             }
         }
 
-        request.setAttribute("planets", DaoFactory.getPlanetsDao().all());
+        request.setAttribute("planets", getPlanetsDao().all());
         request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request,response);
     }
 

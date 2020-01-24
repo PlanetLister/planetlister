@@ -10,7 +10,9 @@
 
         <c:if test="${user != null}">
             <li class="menu_li2">
-                <a class="menu_a" href="/profile"><img src="../../img/profile.png" alt=""></a>
+                <div class="red">
+                    <a class="menu_a" href="/profile"><img id="ex1" src="../../img/profile.png" alt=""></a>
+                </div>
                 <a class="logout" href="/logout">Log Out</a>
             </li>
         </c:if>
