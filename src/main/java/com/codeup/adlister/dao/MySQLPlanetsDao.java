@@ -117,12 +117,12 @@ public class MySQLPlanetsDao implements Planets {
             throw new RuntimeException("Error updating planet");
         }
     }
-    public int changeOwnerPlanet(Planet planet){
-        String query = "UPDATE planets SET user_id = ?, WHERE = id = ?";
+    public int changeOwnerPlanet(Planet planet, int userId){
+        String query = "UPDATE planets SET user_id = ? WHERE id = ?";
         try{
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, planet.getUser_id());
-            stmt.setLong(2, planet.getId());
+            stmt.setInt(1, userId);
+            stmt.setInt(2, planet.getId());
             int count = stmt.executeUpdate();
             return count;
         }catch (SQLException e){
