@@ -406,7 +406,7 @@ body{
     font-family: 'Space Mono', monospace;
 }
 
-#\#submitUpdateForm{
+#submitUpdateForm{
     font-size:12px;
     width: 120px;
 }
