@@ -1,6 +1,8 @@
 package com.codeup.adlister.models;
 //adding a Category model
 
+import java.util.Comparator;
+
 public class Category {
     private int id;
     private String name;
@@ -34,5 +36,19 @@ public class Category {
 
     public String toString(){
         return "{"+this.id+ " "+this.name+"}";
+    }
+
+    public boolean equals(Object obj){
+        if(this == obj){
+            return true;
+        }else if (obj == null){
+            return false;
+        }else if(obj instanceof Category){
+            Category cat = (Category)obj;
+            if((cat.getName() == null && name == null) || (cat.getName().equals(name))){
+                return true;
+            }
+        }
+        return false;
     }
 }

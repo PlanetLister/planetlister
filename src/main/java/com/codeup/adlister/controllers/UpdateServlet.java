@@ -57,7 +57,6 @@ public class UpdateServlet extends HttpServlet {
                     }
 
                     request.getSession().removeAttribute("planetId");
-                    //request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
                     response.sendRedirect("/profile");
                 }
 

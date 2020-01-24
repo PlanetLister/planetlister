@@ -59,21 +59,27 @@ $(document).on("click", "#buy",function () {
 
 $(document).on("click", "#update",function (){
     $("#updateUserForm").toggle();
+    if($("#createPlanet").css('display') == "block")
+    {
+     $("#createPlanet").toggle();
+    }
 });
 
 ///////////create planet///////////////
+
 $(document).on("click", "#create",function () {
-    // $("#createPlanet").html(
-    //     "<form class='info' method=\"post\" action=\"/galaxy/planet/create\">" +
-    //     "<label for=\"pname\"><b>Planet Name:</b></label>" +
-    //     "<input type=\"text\" placeholder=\"Enter name of planet\" id=\"pname\" name=\"pname\" required>" +
-    //     "<br>" +
-    //     "<label for=\"description\"><b>Description:</b></label>" +
-    //     "<textarea style='width: 50%;" +
-    //     " height: 150px;' placeholder=\"Enter Description\" name=\"description\" id=\"description\" required></textarea>" +
-    //     "<br>" +
-    //     "<button type=\"submit\" class='button'>Create</button>" +
-    //     "</form>"
-    // );
     $("#createPlanet").toggle();
+    if($("#updateUserForm").css('display') == 'block')
+    {
+        $("#updateUserForm").toggle();
+    }
 });
+
+// $(document).on("click", "#create", function () {
+//     $("#createPlanet").toggle();
+// });
+//
+// $(document).on("click", "#update", function () {
+//     $("#updateUserForm").toggle();
+// });
+
