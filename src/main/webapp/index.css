@@ -354,8 +354,8 @@ body{
 }
 
 #planet1, #planet16, #planet28{background-image: url("img/planet.gif")}
-#planet2, #planet17, #planet29{background-image: url("img/planet1.gif")}
-#planet3, #planet18, #planet30{background-image: url("img/planet2.gif")}
+#planet2, #planet17, #planet29{background-image: url("img/planet2.gif")}
+#planet3, #planet18, #planet30{background-image: url("img/planet1.gif")}
 #planet4, #planet19, #planet31{background-image: url("img/planet3.gif")}
 #planet5, #planet20, #planet32{background-image: url("img/planet4.gif")}
 #planet6, #planet21, #planet33{background-image: url("img/planet5.gif")}
