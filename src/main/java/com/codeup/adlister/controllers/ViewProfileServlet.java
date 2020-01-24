@@ -85,8 +85,8 @@ public class ViewProfileServlet extends HttpServlet {
             }else{
                 request.setAttribute("generalError", "Fields cannot be null or empty");
             }
-
-            request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+             response.sendRedirect("/profile");
+//            request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
         }
     }
 }

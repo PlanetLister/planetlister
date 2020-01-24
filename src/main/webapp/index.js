@@ -31,7 +31,7 @@ const expand = () => {
     input.classList.toggle("square");
 };
 
-//searchBtn.addEventListener("click", expand);
+searchBtn.addEventListener("click", expand);
 
 
 ////////////planet/////////
